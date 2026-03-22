@@ -815,6 +815,46 @@
             margin-bottom: 0.5rem;
             color: #8a6de9;
         }
+        .gallery-placeholder--photo {
+            padding: 0;
+            display: block;
+        }
+        .gallery-placeholder--photo img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        /* Портрет Гагарина и карточки ИМБП: без фиксированной «широкой» рамки — иначе вертикальные фото обрезаются по высоте */
+        .gagarin-portrait-frame .gallery-placeholder--photo {
+            aspect-ratio: auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+        .gagarin-portrait-frame .gallery-placeholder--photo img {
+            aspect-ratio: auto;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center top;
+        }
+        .orbit-med-mini .gallery-placeholder--photo {
+            aspect-ratio: auto;
+            min-height: 0;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .orbit-med-mini .gallery-placeholder--photo img {
+            aspect-ratio: auto;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center top;
+        }
+        .wave1-cosmo-visual .gallery-placeholder--photo {
+            border-radius: 22px;
+            overflow: hidden;
+        }
         .gallery-caption {
             padding: 1rem;
             text-align: center;
@@ -826,6 +866,31 @@
             display: block;
             aspect-ratio: 4/3;
             object-fit: cover;
+        }
+
+        /* Фотоальбомы с целым кадром в ячейке (без обрезки), пропорции сохраняются */
+        .gallery-first-cosmonauts .gallery-placeholder--photo,
+        .gallery-first-squad .gallery-placeholder--photo,
+        .gallery-gagarin-training .gallery-placeholder--photo {
+            aspect-ratio: 4/3;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #1a2f4a, #2d4b6e);
+            padding: 0.4rem;
+            box-sizing: border-box;
+        }
+        .gallery-first-cosmonauts .gallery-placeholder--photo img,
+        .gallery-first-squad .gallery-placeholder--photo img,
+        .gallery-gagarin-training .gallery-placeholder--photo img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            aspect-ratio: auto;
         }
 
         .photo-row {
@@ -1513,6 +1578,178 @@
             color: #fff;
         }
 
+        /* Газенко: медконтроль + карусель дневника */
+        .dog-gazenko-medic-board {
+            background: linear-gradient(155deg, rgba(12, 28, 48, 0.98) 0%, rgba(18, 38, 62, 0.92) 100%);
+            border: 2px solid rgba(57, 255, 189, 0.22);
+            box-shadow: 0 0 48px rgba(57, 255, 189, 0.06);
+        }
+        .dog-gazenko-medic-board > h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.45rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+        .dog-gazenko-medic-board > h3 i {
+            color: #39ffbd;
+        }
+        .dog-gazenko-medic-lead {
+            margin: 0 0 1.25rem;
+            font-size: 0.98rem;
+            color: #8a6de9;
+            line-height: 1.45;
+        }
+        .dog-gazenko-medic {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+            gap: 2rem;
+            align-items: start;
+            margin-top: 0.25rem;
+        }
+        .dog-gazenko-medic-text p {
+            color: #d4e6f0;
+            line-height: 1.6;
+            margin: 0 0 1rem;
+            font-size: 1rem;
+        }
+        .dog-gazenko-medic-text p:last-child {
+            margin-bottom: 0;
+        }
+        .dog-gazenko-medic-list {
+            margin: 0.75rem 0 1rem;
+            padding: 0 0 0 1.25rem;
+            color: #b8d4e8;
+            line-height: 1.55;
+            font-size: 0.98rem;
+        }
+        .dog-gazenko-medic-list li {
+            margin-bottom: 0.45rem;
+        }
+        .dog-gazenko-medic-list strong {
+            color: #39ffbd;
+            font-weight: 600;
+        }
+        .dog-gazenko-medic-note {
+            margin-top: 0.75rem !important;
+            padding-top: 0.85rem;
+            border-top: 1px dashed rgba(138, 109, 233, 0.35);
+            font-size: 0.92rem;
+            color: #7eb8d4;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .dog-gazenko-carousel-wrap {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            background: rgba(5, 15, 28, 0.85);
+            border: 1px solid rgba(138, 109, 233, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
+        .dog-gazenko-carousel {
+            position: relative;
+        }
+        .dog-gazenko-carousel__viewport {
+            overflow: hidden;
+            border-radius: 22px;
+        }
+        .dog-gazenko-carousel__track {
+            display: flex;
+            transition: transform 0.45s ease;
+            will-change: transform;
+        }
+        .dog-gazenko-carousel__slide {
+            flex: 0 0 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .dog-gazenko-carousel__slide img {
+            width: 100%;
+            height: auto;
+            max-height: min(52vh, 420px);
+            object-fit: contain;
+            display: block;
+            background: #050d18;
+        }
+        .dog-gazenko-carousel__slide figcaption {
+            padding: 0.85rem 1rem 1rem;
+            font-size: 0.88rem;
+            color: #9ec9e0;
+            line-height: 1.45;
+            background: rgba(8, 22, 42, 0.92);
+            border-top: 1px solid rgba(57, 255, 189, 0.15);
+        }
+        .dog-gazenko-carousel__btn {
+            position: absolute;
+            top: 38%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(57, 255, 189, 0.5);
+            background: rgba(10, 26, 48, 0.92);
+            color: #39ffbd;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+        }
+        .dog-gazenko-carousel__btn:hover {
+            background: rgba(57, 255, 189, 0.15);
+            border-color: #39ffbd;
+            box-shadow: 0 0 20px rgba(57, 255, 189, 0.25);
+        }
+        .dog-gazenko-carousel__btn:focus-visible {
+            outline: 2px solid #ffaa33;
+            outline-offset: 2px;
+        }
+        .dog-gazenko-carousel__btn--prev {
+            left: 10px;
+        }
+        .dog-gazenko-carousel__btn--next {
+            right: 10px;
+        }
+        .dog-gazenko-carousel__btn[hidden] {
+            display: none !important;
+        }
+        .dog-gazenko-carousel__dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.45rem;
+            padding: 0.65rem 0.75rem 0.85rem;
+            background: rgba(5, 15, 28, 0.65);
+        }
+        .dog-gazenko-carousel__dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: none;
+            padding: 0;
+            background: rgba(138, 109, 233, 0.45);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .dog-gazenko-carousel__dot:hover {
+            background: rgba(57, 255, 189, 0.55);
+        }
+        .dog-gazenko-carousel__dot.is-active {
+            background: #39ffbd;
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(57, 255, 189, 0.45);
+        }
+        .dog-gazenko-carousel__dot:focus-visible {
+            outline: 2px solid #ffaa33;
+            outline-offset: 2px;
+        }
+
         /* Начало: первые полёты на ракетах */
         .dog-origins-board {
             background: linear-gradient(160deg, rgba(8, 22, 42, 0.98) 0%, rgba(16, 40, 68, 0.92) 50%, rgba(10, 26, 48, 0.95) 100%);
@@ -2148,6 +2385,9 @@
             aspect-ratio: 4/3;
             height: auto;
         }
+        .gagarin-portrait-frame .gallery-placeholder.gallery-placeholder--photo {
+            aspect-ratio: auto;
+        }
         .gagarin-why-callout {
             margin-top: 1rem;
             padding: 1rem 1.15rem;
@@ -2310,31 +2550,78 @@
             color: #62d2ff;
             filter: drop-shadow(0 0 8px rgba(98, 210, 255, 0.45));
         }
-        .gagarin-med-slots {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 1.25rem 0;
+        .gagarin-med-lead {
+            margin: 0 0 1rem;
+            font-size: 0.98rem;
+            color: #b8d4e8;
+            line-height: 1.55;
         }
-        .gagarin-med-slot {
-            border-radius: 20px;
-            padding: 0.4rem;
-            background: linear-gradient(180deg, rgba(15, 38, 59, 0.95), rgba(8, 22, 40, 0.98));
-            border: 2px solid rgba(98, 210, 255, 0.25);
-            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
-        }
-        .gagarin-med-slot .gallery-placeholder {
-            border-radius: 14px;
-            aspect-ratio: 16/10;
-        }
-        .gagarin-med-slot-label {
-            font-size: 0.65rem;
+        .gagarin-med-pre-title {
+            font-size: 0.72rem;
             font-weight: 800;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #62d2ff;
+            margin: 0.25rem 0 0.65rem;
+        }
+        .gagarin-med-metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.85rem;
+            margin: 0 0 1.15rem;
+        }
+        .gagarin-med-metric {
+            border-radius: 18px;
+            padding: 0.85rem 0.95rem 1rem;
+            background: linear-gradient(165deg, rgba(12, 32, 52, 0.95), rgba(6, 18, 36, 0.98));
+            border: 1px solid rgba(98, 210, 255, 0.35);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.04),
+                0 8px 24px rgba(0, 0, 0, 0.25);
             text-align: center;
-            padding: 0.35rem 0 0.15rem;
+        }
+        .gagarin-med-metric-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #8eb8d4;
+            margin-bottom: 0.35rem;
+        }
+        .gagarin-med-metric-val {
+            display: block;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #e8f6ff;
+            line-height: 1.15;
+            font-variant-numeric: tabular-nums;
+        }
+        .gagarin-med-metric-unit {
+            display: block;
+            font-size: 0.75rem;
+            color: #62d2ff;
+            margin-top: 0.2rem;
+        }
+        .gagarin-med-metric-note {
+            margin: 0.5rem 0 0;
+            font-size: 0.78rem;
+            color: #8aa9bc;
+            line-height: 1.4;
+            text-align: left;
+        }
+        .gagarin-med-facts {
+            margin: 0;
+            padding: 0 0 0 1.15rem;
+            color: #c8dce8;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+        .gagarin-med-facts li {
+            margin-bottom: 0.5rem;
+        }
+        .gagarin-med-facts li:last-child {
+            margin-bottom: 0;
         }
         .gagarin-med-result {
             margin-top: 1rem;
@@ -2721,6 +3008,18 @@
             min-height: 160px;
             border-radius: 22px;
         }
+        .orbit-med-visual .gallery-placeholder.gallery-placeholder--photo {
+            aspect-ratio: auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+        .orbit-med-visual .gallery-placeholder.gallery-placeholder--photo img {
+            aspect-ratio: auto;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center top;
+        }
         .orbit-med-body p:last-child {
             margin-bottom: 0;
         }
@@ -2764,6 +3063,11 @@
             min-height: 120px;
             margin-bottom: 1rem;
             border-radius: 18px;
+        }
+        /* Выше общее правило перебивает ранний блок с --photo: задаём приоритет для реальных фото */
+        .orbit-med-mini .gallery-placeholder.gallery-placeholder--photo {
+            aspect-ratio: auto;
+            min-height: 0;
         }
         .orbit-med-mini p {
             font-size: 0.92rem;
@@ -3020,31 +3324,6 @@
         }
         .earth-quiz .quiz-title + p {
             margin-bottom: 1.25rem;
-        }
-        .earth-sort-legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem 1rem;
-            margin: 0 0 1.1rem;
-            font-size: 0.88rem;
-            color: #b8c9dc;
-        }
-        .earth-sort-legend__pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .earth-sort-legend__pill--earth {
-            border-color: rgba(52, 211, 153, 0.35);
-            color: #a7f3d0;
-        }
-        .earth-sort-legend__pill--orbit {
-            border-color: rgba(129, 140, 248, 0.4);
-            color: #c7d2fe;
         }
         .earth-sort-list {
             display: flex;
@@ -3574,29 +3853,29 @@
             border-radius: 0;
             border: none;
             border-top: 3px solid rgba(57, 255, 189, 0.45);
+            /* На всю ширину окна, не только колонку .container */
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            box-sizing: border-box;
         }
         .site-footer-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 1.5rem 1.75rem 2rem;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-            gap: 1.5rem 2.5rem;
-            align-items: start;
-        }
-        .site-footer-label {
-            margin: 0 0 0.45rem;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(57, 255, 189, 0.55);
+            max-width: none;
+            width: 100%;
+            margin: 0;
+            padding: 1.5rem clamp(0.65rem, 2vw, 1.25rem) 2rem;
+            box-sizing: border-box;
         }
         .site-footer-museum {
-            margin: 0;
-            font-size: 0.875rem;
+            margin: 0 0 0.85rem;
+            font-size: 0.9rem;
             line-height: 1.5;
             color: #a8c4d8;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
         }
         .site-footer-museum a {
             color: #e0f2fe;
@@ -3608,70 +3887,32 @@
             color: #39ffbd;
             border-bottom-color: rgba(57, 255, 189, 0.65);
         }
-        .site-footer-museum-note {
-            display: block;
-            margin-top: 0.35rem;
-            color: #6b879c;
-            font-weight: 400;
+        .site-footer-credit {
+            margin: 0 0 0.65rem;
             font-size: 0.8125rem;
-        }
-        .site-footer-sources {
-            margin: 0;
-            padding-top: 0;
-            border-top: none;
-        }
-        .site-footer-sources-title {
-            margin: 0 0 0.55rem;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(138, 109, 233, 0.75);
-        }
-        .site-footer-sources ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        .site-footer-sources li {
-            position: relative;
-            margin: 0 0 0.5rem;
-            padding-left: 1rem;
+            line-height: 1.55;
             color: #7a9aad;
-            font-size: 0.8125rem;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
         }
-        .site-footer-sources li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.55em;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: rgba(57, 255, 189, 0.35);
+        .site-footer-credit:last-of-type {
+            margin-bottom: 0;
         }
-        .site-footer-sources a {
+        .site-footer-credit a {
             color: #9eb5ff;
             text-decoration: none;
             border-bottom: 1px solid rgba(158, 181, 255, 0.25);
         }
-        .site-footer-sources a:hover {
+        .site-footer-credit a:hover {
             color: #c4d4ff;
             border-bottom-color: rgba(196, 212, 255, 0.45);
         }
-        @media (max-width: 720px) {
-            .site-footer-inner {
-                grid-template-columns: 1fr;
-                gap: 1.35rem;
-                padding: 1.35rem 1.15rem 1.75rem;
-            }
-            .site-footer-sources {
-                padding-top: 1.25rem;
-                border-top: 1px solid rgba(57, 255, 189, 0.12);
-            }
-        }
-
         @media (prefers-reduced-motion: reduce) {
+            .dog-gazenko-carousel__track {
+                transition: none;
+            }
             .gagarin-timeline-node:hover {
                 transform: none;
             }
@@ -3705,6 +3946,12 @@
             .dog-origins-main {
                 grid-template-columns: 1fr;
             }
+            .dog-gazenko-medic {
+                grid-template-columns: 1fr;
+            }
+            .dog-gazenko-carousel__btn {
+                top: 32%;
+            }
             .dog-origins-col-visual {
                 position: relative;
                 top: auto;
@@ -3733,7 +3980,7 @@
             .gagarin-train-cols {
                 grid-template-columns: 1fr;
             }
-            .gagarin-med-slots {
+            .gagarin-med-metric-grid {
                 grid-template-columns: 1fr;
             }
             .wave1-cosmo-split {
@@ -4133,36 +4380,32 @@
                 </div>
 
                 <!-- ГАЛЕРЕЯ СОБАК -->
-                <div class="story-card">
+                <div class="story-card gallery-first-cosmonauts">
                     <h3><i class="fas fa-images"></i> Фотоальбом: Первые космонавты</h3>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-dog"></i>
-                                <span>Цыган и Дезик</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Жумчужная (одна из первых,3 полета).png" alt="Собака Жемчужная — одна из первых участниц программы, три полёта" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Цыган и Дезик, 22 июля 1951 г. Первый успешный полет</div>
+                            <div class="gallery-caption">Жемчужная — одна из первых собак программы (три полёта)</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-dog"></i>
-                                <span>Лайка</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Лайка (перед полетом).png" alt="Лайка в скафандре перед полётом" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Лайка перед полетом, 3 ноября 1957 г.</div>
+                            <div class="gallery-caption">Лайка перед полётом, 3 ноября 1957 г.</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-dog"></i>
-                                <span>Белка и Стрелка</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Пчелка на вибростенде.png" alt="Пчёлка на вибростенде во время подготовки" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Белка и Стрелка, 19 августа 1960 г.</div>
+                            <div class="gallery-caption">Пчёлка на вибростенде</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-notes-medical"></i>
-                                <span>Дневник подготовки</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Знаменитый квартет - Стрелка, Чернушка, Звездочка, Белка.png" alt="Стрелка, Чернушка, Звёздочка и Белка — групповой портрет" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Дневник наблюдений за собаками, архив ИМБП</div>
+                            <div class="gallery-caption">Знаменитый квартет: Стрелка, Чернушка, Звёздочка и Белка</div>
                         </div>
                     </div>
                 </div>
@@ -4286,23 +4529,61 @@
                     </div>
                 </div>
 
-                <div class="story-card">
-                    <h4>Медицинский контроль в полете:</h4>
-                    <p>У собак регистрировали: ЭКГ, артериальное давление, частоту дыхания, температуру тела, двигательную активность. Впервые в мире использовалась телеметрия для передачи физиологических данных с орбиты.</p>
-                    <div class="photo-row">
-                        <div class="photo-item">
-                            <div class="gallery-placeholder" style="height: 150px;">
-                                <i class="fas fa-heartbeat"></i> Датчики на собаке
-                            </div>
+                <div class="story-card dog-gazenko-medic-board">
+                    <h3><i class="fas fa-book-medical" aria-hidden="true"></i> Медицинский контроль в полёте и система подготовки О.Г. Газенко</h3>
+                    <p class="dog-gazenko-medic-lead">Олег Георгиевич Газенко вёл подробные рабочие дневники — это была часть научной дисциплины подготовки к полёту.</p>
+                    <div class="dog-gazenko-medic">
+                        <div class="dog-gazenko-medic-text">
+                            <p>В дневниках и записях к опытам он закреплял:</p>
+                            <ul class="dog-gazenko-medic-list">
+                                <li><strong>ЭКГ</strong> — как регистрировали электрокардиограмму и к чему готовились при мониторинге сердца в полёте;</li>
+                                <li><strong>ФКГ</strong> (фонокардиография) — прослушивание и запись тонов сердца для оценки гемодинамики;</li>
+                                <li><strong>Схемы крепления датчиков</strong> — где и как фиксировали электроды и датчики на теле животного, чтобы сигнал был стабильным при перегрузках и в гермокабине.</li>
+                            </ul>
+                            <p>В самом полёте у собак дополнительно регистрировали артериальное давление, частоту дыхания, температуру, двигательную активность; с орбиты впервые в мире передавали физиологические данные по телеметрии. Дневники Газенко показывают, как эта «сухая» методика выстраивалась шаг за шагом до полноценного медицинского сопровождения.</p>
+                            <p>У собак, которые благополучно вернулись, космические полёты на здоровье <strong>никак не сказались</strong>: они оставались здоровыми. У <strong>Белки и Стрелки</strong> после миссии на весах фиксировали <strong>неизменный вес</strong>; <strong>Стрелка</strong> позже <strong>стала матерью</strong> и дала здоровое потомство — наглядное подтверждение, что орбитальный полёт не нарушил воспроизводительную функцию. Такие наблюдения были важным аргументом при оценке возможности пилотируемых полётов.</p>
                         </div>
-                        <div class="photo-item">
-                            <div class="gallery-placeholder" style="height: 150px;">
-                                <i class="fas fa-chart-line"></i> Запись ЭКГ
-                            </div>
-                        </div>
-                        <div class="photo-item">
-                            <div class="gallery-placeholder" style="height: 150px;">
-                                <i class="fas fa-tv"></i> Пульт управления
+                        <div class="dog-gazenko-carousel-wrap">
+                            <div class="dog-gazenko-carousel" id="gazenkoCarousel" role="region" aria-roledescription="карусель" aria-label="Фотографии: Белка и Стрелка, дневники наблюдений О.Г. Газенко">
+                                <div class="dog-gazenko-carousel__viewport">
+                                    <div class="dog-gazenko-carousel__track" id="gazenkoCarouselTrack">
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Белка и Стрелка (первые путешественники после возвращения из Космоса).png" alt="Белка и Стрелка — первые путешественники после возвращения из космоса" loading="lazy" width="800" height="600">
+                                            <figcaption>Белка и Стрелка — первые путешественники после возвращения из космоса.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Белка и Стрелка в гематологической лаборатории.png" alt="Белка и Стрелка в гематологической лаборатории после полёта" loading="lazy" width="800" height="600">
+                                            <figcaption>Гематологическая лаборатория: контроль после полёта.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Белка и Стрелка (вес не изменился).png" alt="Белка и Стрелка на весах после полёта, масса тела не изменилась" loading="lazy" width="800" height="600">
+                                            <figcaption>На весах после возвращения: масса тела осталась прежней.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Стрелка - счастливая мать.png" alt="Стрелка со щенками после космического полёта" loading="lazy" width="800" height="600">
+                                            <figcaption>Стрелка со щенками — здоровое потомство после орбитального полёта.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Дневник.png" alt="Страница рабочего дневника наблюдений" loading="lazy" width="800" height="600">
+                                            <figcaption>Дневник наблюдений.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Дневник_ЭКГ.png" alt="Дневник: схемы ЭКГ и крепление электродов" loading="lazy" width="800" height="600">
+                                            <figcaption>Дневник: ЭКГ — схемы и записи.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Дневник_датчики движения.png" alt="Дневник: крепление датчиков движения" loading="lazy" width="800" height="600">
+                                            <figcaption>Дневник: датчики движения.</figcaption>
+                                        </figure>
+                                        <figure class="dog-gazenko-carousel__slide">
+                                            <img src="images/Дневник_записи про Белку.png" alt="Дневник: пробные записи и данные по Белке" loading="lazy" width="800" height="600">
+                                            <figcaption>Дневник: записи про Белку.</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <button type="button" class="dog-gazenko-carousel__btn dog-gazenko-carousel__btn--prev" id="gazenkoCarouselPrev" aria-label="Предыдущий слайд"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                                <button type="button" class="dog-gazenko-carousel__btn dog-gazenko-carousel__btn--next" id="gazenkoCarouselNext" aria-label="Следующий слайд"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                                <div class="dog-gazenko-carousel__dots" id="gazenkoCarouselDots" role="tablist" aria-label="Выбор слайда"></div>
                             </div>
                         </div>
                     </div>
@@ -4356,36 +4637,32 @@
                 </div>
 
                 <!-- ФОТОГАЛЕРЕЯ ПЕРВОГО ОТРЯДА -->
-                <div class="story-card">
+                <div class="story-card gallery-first-squad">
                     <h3><i class="fas fa-images"></i> Первый отряд</h3>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-user-astronaut"></i>
-                                <span>Групповое фото</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Первый отряд космонавтов.jpg" alt="Первый отряд космонавтов: групповое фото" width="400" height="300" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-caption">Первый отряд космонавтов, 1960 г.</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-user-astronaut"></i>
-                                <span>Гагарин на тренировке</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Титов на центрифуге.png" alt="Герман Титов на центрифуге" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Ю. Гагарин на центрифуге</div>
+                            <div class="gallery-caption">Г. С. Титов на центрифуге</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-user-astronaut"></i>
-                                <span>Титов</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Парашютная подготовка.jpeg" alt="Парашютная подготовка космонавтов" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Г. Титов в сурдокамере</div>
+                            <div class="gallery-caption">Парашютная подготовка</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-stethoscope"></i>
-                                <span>Медицинский осмотр</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Как проходили обследование.png" alt="Медицинское обследование кандидатов в космонавты" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Врачи обследуют кандидатов, ЦВНИАГ</div>
+                            <div class="gallery-caption">Как проходили обследование</div>
                         </div>
                     </div>
                 </div>
@@ -4395,7 +4672,7 @@
                         <header class="cosmo-sec-head">
                             <span class="cosmo-sec-head-badge"><i class="fas fa-satellite" aria-hidden="true"></i> Орбита отбора</span>
                             <h4 id="cosmo-criteria-title">Основные критерии отбора</h4>
-                            <p class="cosmo-squad-sub">Количественные лимиты (возраст, рост, масса) и развёрнутые требования по здоровью, роду войск и психике — формальный допуск к подготовке.</p>
+                            <p class="cosmo-squad-sub">Требования по здоровью, роду войск и психике — формальный допуск к подготовке.</p>
                         </header>
                         <div class="cosmo-dossier">
                             <div class="cosmo-metric-grid">
@@ -4441,7 +4718,7 @@
                         <header class="cosmo-sec-head cosmo-sec-head--lab">
                             <span class="cosmo-sec-head-badge"><i class="fas fa-user-astronaut" aria-hidden="true"></i> Полигон ЦВНИАГ</span>
                             <h4 id="cosmo-tests-title">Медицинские тесты</h4>
-                            <p class="cosmo-squad-sub">Модули испытаний — одна за другой, как этапы вывода на «орбиту готовности»: от перегрузок до изоляции и вестибулярных стендов.</p>
+                            <p class="cosmo-squad-sub">Модули испытаний как этапы вывода на «орбиту готовности»: от перегрузок до изоляции и вестибулярных стендов.</p>
                         </header>
                         <div class="cosmo-lab-flow">
                             <article class="cosmo-lab-mod cosmo-lab-mod--a">
@@ -4486,7 +4763,7 @@
             <div class="game-stage" id="stage4">
                 <div class="stage-banner stage-banner--gagarin">
                     <h2>ПОДГОТОВКА ГАГАРИНА</h2>
-                    <p>Детальный план тренировок и путь к первому полёту человека</p>
+                    <p>Путь к первому полёту человека</p>
                     <span class="stage-banner-tag">Восток-1 · 1961</span>
                 </div>
 
@@ -4525,9 +4802,8 @@
                             </div>
                         </div>
                         <div class="gagarin-portrait-frame">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-user-astronaut"></i>
-                                <span>Ю.А. Гагарин</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Гагарин.png" alt="Юрий Алексеевич Гагарин" width="400" height="300" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -4564,7 +4840,7 @@
                                 </div>
                             </div>
                             <ul class="gagarin-train-list">
-                                <li>Ежедневная зарядка — <strong>2 часа</strong></li>
+                                <li>Ежедневная зарядка</li>
                                 <li>Гимнастика, акробатика</li>
                                 <li>Плавание, прыжки в воду</li>
                                 <li>Батут (координация)</li>
@@ -4591,56 +4867,64 @@
                 </div>
 
                 <!-- ФОТОГАЛЕРЕЯ ТРЕНИРОВОК -->
-                <div class="story-card gagarin-photo-deck">
+                <div class="story-card gagarin-photo-deck gallery-gagarin-training">
                     <h3>Фото с тренировок</h3>
-                    <p class="deck-sub">Визуальные якоря этапов — от парашюта до изоляции слуха.</p>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-parachute-box"></i>
-                                <span>Парашют</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Подготовка к прыжку с парашютом_Гагарин.jpg" alt="Ю. А. Гагарин готовится к прыжку с парашютом" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Гагарин готовится к прыжку</div>
+                            <div class="gallery-caption">Подготовка к прыжку с парашютом</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-sync-alt"></i>
-                                <span>Центрифуга</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Барокамера.png" alt="Тренировка в барокамере" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Тренировка на центрифуге</div>
+                            <div class="gallery-caption">Барокамера</div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-thermometer-half"></i>
-                                <span>Термокамера</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Знакомство с невесомостью.png" alt="Знакомство с невесомостью на тренировке" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">В термокамере</div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-deaf"></i>
-                                <span>Сурдокамера</span>
-                            </div>
-                            <div class="gallery-caption">В сурдокамере</div>
+                            <div class="gallery-caption">Знакомство с невесомостью</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="story-card gagarin-med-deck">
                     <div class="gagarin-med-head"><i class="fas fa-heartbeat" aria-hidden="true"></i> Медицинский контроль в полёте</div>
-                    <p>На корабле «Восток» стояла аппаратура <strong>«Вега-А»</strong> (около 4 кг): регистрация ЭКГ и частоты дыхания. Электроды крепились клеем; пульс уходил по каналу <strong>«Сигнал»</strong> на Землю.</p>
-                    <div class="gagarin-med-slots">
-                        <div class="gagarin-med-slot">
-                            <div class="gallery-placeholder">Аппаратура «Вега-А»</div>
-                            <div class="gagarin-med-slot-label">Бортовой комплекс</div>
+                    <p class="gagarin-med-lead">Перед стартом «Востока-1» врачи фиксировали базовые показатели и сравнивали их с допуском к полёту; в космосе работала бортовая аппаратура, передававшая данные на Землю.</p>
+
+                    <div class="gagarin-med-pre-title">Показатели перед стартом (типичный коридор для Ю.А. Гагарина)</div>
+                    <div class="gagarin-med-metric-grid" role="group" aria-label="Предстартовые показатели">
+                        <div class="gagarin-med-metric">
+                            <span class="gagarin-med-metric-label">Пульс в покое</span>
+                            <span class="gagarin-med-metric-val">60–70</span>
+                            <span class="gagarin-med-metric-unit">уд/мин</span>
+                            <p class="gagarin-med-metric-note">Спокойный ритм перед выходом к ракете — один из критериев готовности.</p>
                         </div>
-                        <div class="gagarin-med-slot">
-                            <div class="gallery-placeholder">ЭКГ Гагарина</div>
-                            <div class="gagarin-med-slot-label">Телеметрия</div>
+                        <div class="gagarin-med-metric">
+                            <span class="gagarin-med-metric-label">Систолическое давление</span>
+                            <span class="gagarin-med-metric-val">110–120</span>
+                            <span class="gagarin-med-metric-unit">мм&nbsp;рт.&nbsp;ст.</span>
+                            <p class="gagarin-med-metric-note">Артериальное давление в пределах, согласованных с медкомиссией.</p>
+                        </div>
+                        <div class="gagarin-med-metric">
+                            <span class="gagarin-med-metric-label">Масса тела</span>
+                            <span class="gagarin-med-metric-val">65–72</span>
+                            <span class="gagarin-med-metric-unit">кг</span>
+                            <p class="gagarin-med-metric-note">Укладывалась в расчёт посадочной массы и скафандра «Востока» (рост Гагарина — 169&nbsp;см).</p>
                         </div>
                     </div>
+
+                    <ul class="gagarin-med-facts">
+                        <li>На борту стоял комплекс <strong>«Вега-А»</strong> (около 4&nbsp;кг): регистрация <strong>ЭКГ</strong> и <strong>частоты дыхания</strong>; электроды крепили кожным клеем.</li>
+                        <li>Пульс и часть параметров уходили по радиоканалу <strong>«Сигнал»</strong> для наземных врачей и ЦУП.</li>
+                        <li>После полёта заключение было единодушным: отклонений, несовместимых с дальнейшими пилотируемыми программами, не выявлено.</li>
+                    </ul>
+
                     <div class="gagarin-med-result">
-                        <strong>Итоги:</strong> пульс на старте до 150 уд/мин, в невесомости стабилизировался; патологий не выявлено; полёт признан безопасным для человека.
+                        <strong>В полёте и после:</strong> при старте пульс достигал порядка <strong>150 уд/мин</strong>, в невесомости снижался и стабилизировался; по телеметрии <strong>патологий не зафиксировано</strong> — первый экипажный полёт признан безопасным для человека.
                     </div>
                 </div>
 
@@ -4685,15 +4969,14 @@
                     <div class="story-card wave1-cosmo-card">
                         <div class="wave1-cosmo-split">
                             <div class="wave1-cosmo-visual">
-                                <div class="gallery-placeholder">
-                                    <i class="fas fa-user-astronaut" aria-hidden="true"></i>
-                                    <span>Г. Титов</span>
+                                <div class="gallery-placeholder gallery-placeholder--photo">
+                                    <img src="images/Титов.png" alt="Герман Степанович Титов" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
                                 <h3>Герман Титов (6 августа 1961)</h3>
                                 <p><strong>«Восток-2»</strong> — первый многовитковый полёт: около <strong>25 часов 18 минут</strong>, до <strong>17 витков</strong>. Титову было 25 лет — на тот момент самый молодой космонавт.</p>
-                                <p>Впервые приём пищи в невесомости с тюбиков, сон на орбите, подробная киносъёмка Земли. Впервые в пилотируемом полёте подробно описал <strong>космическую болезнь</strong> (головокружение, тошнота, иллюзия перевёрнутости).</p>
+                                <p>Впервые приём пищи в невесомости с тюбиков, сон на орбите, подробная киносъёмка Земли. Космонавт в пилотируемом полёте подробно описал <strong>космическую болезнь</strong> (головокружение, тошнота, иллюзия перевёрнутости).</p>
                                 <p><strong>Урок для медиков:</strong> вестибулярная подготовка, режим работы и питания, профилактика сенсорного конфликта.</p>
                             </div>
                         </div>
@@ -4701,9 +4984,8 @@
                     <div class="story-card wave1-cosmo-card">
                         <div class="wave1-cosmo-split wave1-cosmo-split--reverse">
                             <div class="wave1-cosmo-visual">
-                                <div class="gallery-placeholder">
-                                    <i class="fas fa-rocket" aria-hidden="true"></i>
-                                    <span>Николаев и Попович</span>
+                                <div class="gallery-placeholder gallery-placeholder--photo">
+                                    <img src="images/Николаев_Попович.jpg" alt="Андриян Николаев и Павел Попович" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
@@ -4716,9 +4998,8 @@
                     <div class="story-card wave1-cosmo-card">
                         <div class="wave1-cosmo-split">
                             <div class="wave1-cosmo-visual">
-                                <div class="gallery-placeholder">
-                                    <i class="fas fa-user-astronaut" aria-hidden="true"></i>
-                                    <span>В. Терешкова</span>
+                                <div class="gallery-placeholder gallery-placeholder--photo">
+                                    <img src="images/Терешкова.jpeg" alt="Валентина Владимировна Терешкова" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
@@ -4731,9 +5012,8 @@
                     <div class="story-card wave1-cosmo-card">
                         <div class="wave1-cosmo-split wave1-cosmo-split--reverse">
                             <div class="wave1-cosmo-visual">
-                                <div class="gallery-placeholder">
-                                    <i class="fas fa-user-astronaut" aria-hidden="true"></i>
-                                    <span>В. Быковский</span>
+                                <div class="gallery-placeholder gallery-placeholder--photo">
+                                    <img src="images/Быковский.jpeg" alt="Валерий Фёдорович Быковский" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
@@ -4745,9 +5025,8 @@
                     <div class="story-card wave1-cosmo-card">
                         <div class="wave1-cosmo-split">
                             <div class="wave1-cosmo-visual">
-                                <div class="gallery-placeholder">
-                                    <i class="fas fa-users" aria-hidden="true"></i>
-                                    <span>«Восход-1»</span>
+                                <div class="gallery-placeholder gallery-placeholder--photo">
+                                    <img src="images/Комаров%20и%20Восход%201.jpg" alt="Экипаж «Восход-1»: К. Феоктистов, Б. Егоров, В. Комаров" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
@@ -4759,9 +5038,8 @@
                     <div class="story-card wave1-cosmo-card">
                         <div class="wave1-cosmo-split wave1-cosmo-split--reverse">
                             <div class="wave1-cosmo-visual">
-                                <div class="gallery-placeholder">
-                                    <i class="fas fa-walking" aria-hidden="true"></i>
-                                    <span>А. Леонов</span>
+                                <div class="gallery-placeholder gallery-placeholder--photo">
+                                    <img src="images/Леонов.jpg" alt="Алексей Архипович Леонов" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
@@ -4827,7 +5105,7 @@
                                 <div class="wave1-medic-icon" aria-hidden="true"><i class="fas fa-thermometer-half"></i></div>
                                 <div class="wave1-medic-card-body">
                                     <strong>Выход в открытый космос</strong>
-                                    <p>При ВКД важны тепловой режим скафандра и нагрузка на ССС: добавляются измерения температуры в скафандре и усиленный контроль пульса — в том числе для оперативных решений командира экипажа.</p>
+                                    <p>При ВКД важны тепловой режим скафандра и нагрузка на сердечно-сосудистую систему: добавляются измерения температуры в скафандре и усиленный контроль пульса — в том числе для оперативных решений командира экипажа.</p>
                                     <div class="wave1-medic-tags">
                                         <span class="wave1-medic-tag">Температура скафандра</span>
                                         <span class="wave1-medic-tag">Пульс</span>
@@ -4841,7 +5119,7 @@
                 <!-- ЗАДАНИЕ 3: одно утверждение не совпадает с текстом этапа -->
                 <div class="quiz-container" id="varietyTask5Wrap">
                     <div class="quiz-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Задание: Где ошибка?</div>
-                    <p class="variety-task-hint">Три фразы верны по материалу выше, в одной спрятана неточность. Отметьте только неверную фразу и нажмите «Проверить».</p>
+                    <p class="variety-task-hint">Три фразы верны, в одной спрятана неточность. Отметьте только неверную фразу и нажмите «Проверить».</p>
                     <div id="varietyTask5Mount"></div>
                     <button type="button" class="stage-button" onclick="checkWave1SpotFake()">Проверить</button>
                     <div id="varietyMatchResult" class="result-message"></div>
@@ -4863,9 +5141,8 @@
                     <div class="story-card orbit-med-mini">
                         <span class="orbit-med-pill">Наука · ИМБП</span>
                         <h3>Олег Георгиевич Газенко</h3>
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-dog" aria-hidden="true"></i>
-                            <span>О.Г. Газенко</span>
+                        <div class="gallery-placeholder gallery-placeholder--photo">
+                            <img src="images/Газенко.jpg" alt="Олег Георгиевич Газенко с Белкой и Стрелкой" width="400" height="250" loading="lazy" decoding="async">
                         </div>
                         <p>Физиолог, академик РАН, генерал-лейтенант медицинской службы. С <strong>1955 года</strong> — в космической биологии и медицине; участвовал в программах с собаками и в подготовке полёта <strong>Ю.А. Гагарина</strong>.</p>
                         <p>Директор <strong>ИМБП с 1969 по 1988 год</strong>: системы защиты экипажа, медицинское обеспечение длительных полётов, развитие наземной базы исследований. Один из символов становления отечественной космической медицины.</p>
@@ -4873,9 +5150,8 @@
                     <div class="story-card orbit-med-mini">
                         <span class="orbit-med-pill">Подготовка экипажей</span>
                         <h3>Юрий Александрович Сенкевич</h3>
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                            <span>Ю.А. Сенкевич</span>
+                        <div class="gallery-placeholder gallery-placeholder--photo">
+                            <img src="images/Сенкевич.jpg" alt="Юрий Александрович Сенкевич в телестудии" width="400" height="250" loading="lazy" decoding="async">
                         </div>
                         <p>Врач, кандидат медицинских наук. С <strong>1964 года</strong> в ИМБП: прошёл путь от младшего научного сотрудника до начальника <strong>учебно-тренировочного центра</strong> медико-биологической подготовки космонавтов.</p>
                         <p><strong>Более 30 лет</strong> участвовал в медицинском обеспечении пилотируемых полётов и экспериментов на биоспутниках; разрабатывал методы психофизиологического отбора и подготовки. В <strong>1965 году</strong> проходил подготовку к полёту по медицинской программе (макет «Восход»); назначение в экипаж не состоялось после закрытия программы. Автор десятков научных работ; широкой публике известен как создатель и ведущий передачи «Клуб путешественников».</p>
@@ -4936,9 +5212,8 @@
                     <h3><i class="fas fa-user-md" aria-hidden="true"></i> Борис Егоров — первый врач в космосе (1964)</h3>
                     <div class="orbit-med-split">
                         <div class="orbit-med-visual">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-user-md" aria-hidden="true"></i>
-                                <span>Б. Егоров</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Егоров.jpg" alt="Борис Егоров с датчиками медицинского контроля при подготовке к полёту" width="280" height="360" loading="lazy" decoding="async">
                             </div>
                         </div>
                         <div class="orbit-med-body">
@@ -4956,9 +5231,8 @@
                     <h3><i class="fas fa-dna" aria-hidden="true"></i> Валерий Поляков — рекорд длительности (437 суток)</h3>
                     <div class="orbit-med-split orbit-med-split--reverse">
                         <div class="orbit-med-visual">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-dna" aria-hidden="true"></i>
-                                <span>В. Поляков</span>
+                            <div class="gallery-placeholder gallery-placeholder--photo">
+                                <img src="images/Поляков.png" alt="Валерий Поляков в скафандре «Сокол»" width="280" height="360" loading="lazy" decoding="async">
                             </div>
                         </div>
                         <div class="orbit-med-body">
@@ -4990,7 +5264,7 @@
 
                 <div class="story-card earth-spin-hero">
                     <h3><i class="fas fa-globe-americas" aria-hidden="true"></i> Двойная отдача</h3>
-                    <p class="earth-spin-hero-text">Космическая медицина изначально решает узкую задачу — сохранить здоровье экипажа в экстремуме. Но сенсоры, алгоритмы и клинические протоколы, отработанные для орбиты, снова и снова «приземляются»: в телемониторинге, реабилитации, геронтологии и даже в изоляционных экспедициях.</p>
+                    <p class="earth-spin-hero-text">Космическая медицина изначально решает узкую задачу — сохранить здоровье экипажа. Но сенсоры, алгоритмы и клинические протоколы, отработанные для орбиты, снова и снова «приземляются»: в телемониторинге, реабилитации, геронтологии и даже в изоляционных экспедициях.</p>
                     <div class="earth-spin-flow" aria-hidden="true">
                         <span class="earth-spin-flow-node"><i class="fas fa-satellite"></i> Лаборатория на орбите</span>
                         <span class="earth-spin-flow-arrow">→</span>
@@ -5078,7 +5352,7 @@
                 <!-- ЗАДАНИЕ 7: классификация «Земля / орбита» (5 случайных наборов по 6 фраз) -->
                 <div class="quiz-container earth-quiz" id="varietyTask7Wrap">
                     <div class="quiz-title"><i class="fas fa-globe"></i> Задание: Космическая медицина и Земля</div>
-                    <p class="variety-task-hint">Прочитайте каждую ситуацию и отметьте, о чём она в первую очередь: о переносе опыта на больницы и жизнь на Земле или о самом полёте и работе экипажа на орбите. Для каждой строки выберите одну метку.</p>
+                    <p class="variety-task-hint">Прочитайте каждую ситуацию и отметьте, о чём она в первую очередь: о переносе опыта на больницы и жизнь на Земле или о самом полёте и работе экипажа на орбите.</p>
                     <div id="varietyTask7Mount"></div>
                     <button type="button" class="stage-button" onclick="checkEarthSort()">Проверить</button>
                     <div id="varietyRebusResult" class="result-message"></div>
@@ -5090,7 +5364,7 @@
             <!-- ЭТАП 8: ТАЙМЛАЙН И ВЫВОД (до экрана поздравления) -->
             <div class="game-stage" id="stage8">
                 <div class="stage-banner stage-banner--finale">
-                    <h2>СОВРЕМЕННОСТЬ И ФИНАЛ</h2>
+                    <h2>СОВРЕМЕННОСТЬ</h2>
                     <p>Хронология космической медицины — и главный урок: без здоровья экипажа нет ни витка, ни станции, ни дальнего маршрута</p>
                 </div>
 
@@ -5410,30 +5684,17 @@
                     </div>
                     <p class="finale-score-detail" id="final-score-block">Ваши результаты: <span id="final-score">—</span></p>
                     <p class="finale-flavor" id="final-flavor-text"></p>
-                    <p class="finale-museum">Спасибо за прохождение квеста. Ссылка на музей и перечень источников — в подвале страницы ниже.</p>
                     <button class="stage-button" onclick="restartGame()">ПРОЙТИ ЗАНОВО</button>
                 </div>
 
-                <footer class="site-footer site-footer--quest-end" role="contentinfo" aria-label="Подвал страницы: музей и источники">
+                <footer class="site-footer site-footer--quest-end" role="contentinfo" aria-label="Сведения о проекте и источниках">
                     <div class="site-footer-inner">
-                        <div class="site-footer-col site-footer-col--museum">
-                            <p class="site-footer-label">Организатор</p>
-                            <p class="site-footer-museum">
-                                <a href="https://milmed.spb.ru/" target="_blank" rel="noopener noreferrer">Военно-медицинский музей Министерства обороны Российской Федерации</a>
-                                <span class="site-footer-museum-note">Санкт-Петербург, экспозиции и мероприятия музея.</span>
-                            </p>
-                        </div>
-                        <div class="site-footer-col site-footer-col--sources">
-                            <p class="site-footer-sources-title" id="footer-sources-heading">Источники и ориентиры для фактов в квесте</p>
-                            <nav class="site-footer-sources" aria-labelledby="footer-sources-heading">
-                                <ul>
-                                    <li>материалы и методические подходы <a href="https://milmed.spb.ru/" target="_blank" rel="noopener noreferrer">Военно-медицинского музея МО РФ</a>;</li>
-                                    <li>сведения о медико-биологическом обеспечении пилотируемых программ — сайт <a href="https://imbp.ru/" target="_blank" rel="noopener noreferrer">ГНЦ РФ — ИМБП РАН</a>;</li>
-                                    <li>официальные публикации и хронология космической деятельности — <a href="https://www.roscosmos.ru/" target="_blank" rel="noopener noreferrer">Госкорпорация «Роскосмос»</a>;</li>
-                                    <li>дополнительная сверка дат и формулировок — справочные и энциклопедические издания по истории отечественной космонавтики (в т.ч. открытые биографические и хронологические справки).</li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <p class="site-footer-museum">
+                            <a href="https://milmed.spb.ru/" target="_blank" rel="noopener noreferrer">Военно-медицинский музей</a>
+                        </p>
+                        <p class="site-footer-credit">Проект создан совместно с Санкт-Петербургским государственным электротехническим университетом «ЛЭТИ» им. В.И. Ульянова (Ленина).</p>
+                        <p class="site-footer-credit">Идея, концепт, разработка: Разживина Н.М. — Руководитель: Тимофеев А.В.</p>
+                        <p class="site-footer-credit">Использованы материалы <a href="http://www.imbp.ru/WebPages/WIN1251/History/History.html" target="_blank" rel="noopener noreferrer">ГНЦ РФ — ИМБП РАН</a>, <a href="https://roscosmos.ru/" target="_blank" rel="noopener noreferrer">Госкорпорации «Роскосмос»</a>, «История отечественной космической медицины» (под редакцией Ушакова И.Б., Бедненко В.С., Лапаева Э.В.).</p>
                     </div>
                 </footer>
             </div>
@@ -5478,45 +5739,45 @@
         }
 
         const DOG_VARIANTS = [
-            { intro: 'Какая собака подходит по критериям: до 6 кг, дворняга, спокойный характер, светлый окрас?', correct: '2', options: [
-                { id: '1', t: '🐕 Шарик, 8 кг, породистый, пугливый' },
-                { id: '2', t: '🐕 Белка, 5 кг, дворняга, спокойная, светлая' },
-                { id: '3', t: '🐕 Рекс, 10 кг, овчарка, активный' },
-                { id: '4', t: '🐕 Жучка, 4 кг, дворняга, тёмная, нервная' }
+            { intro: 'Кто подходит по критериям?', correct: '2', options: [
+                { id: '1', t: 'Шарик, 8 кг, породистый, пугливый' },
+                { id: '2', t: 'Белка, 5 кг, дворняга, спокойная, светлая' },
+                { id: '3', t: 'Рекс, 10 кг, овчарка, активный' },
+                { id: '4', t: 'Жучка, 4 кг, дворняга, тёмная, нервная' }
             ]},
-            { intro: 'Нужна самка до 6 кг, дворняга, спокойная, со светлым окрасом. Кто подходит?', correct: '1', options: [
-                { id: '1', t: '🐕 Мила, 5 кг, дворняга, светлая, спокойная' },
-                { id: '2', t: '🐕 Бобик, 5 кг, дворняга, светлый, активный' },
-                { id: '3', t: '🐕 Зорька, 5 кг, дворняга, тёмная, спокойная' },
-                { id: '4', t: '🐕 Лорд, 4 кг, породистый, светлый' }
+            { intro: 'Кто подходит по критериям?', correct: '1', options: [
+                { id: '1', t: 'Мила, 5 кг, дворняга, светлая, спокойная' },
+                { id: '2', t: 'Бобик, 5 кг, дворняга, светлый, активный' },
+                { id: '3', t: 'Зорька, 5 кг, дворняга, тёмная, спокойная' },
+                { id: '4', t: 'Лорд, 4 кг, породистый, светлый' }
             ]},
-            { intro: 'Критерии: вес до 6 кг, только дворняги, спокойный нрав, не тёмный окрас. Ваш выбор?', correct: '3', options: [
-                { id: '1', t: '🐕 Чижик, 7 кг, дворняга, светлая' },
-                { id: '2', t: '🐕 Найда, 5 кг, хаски, спокойная' },
-                { id: '3', t: '🐕 Кнопка, 5 кг, дворняга, светлая, спокойная' },
-                { id: '4', t: '🐕 Уголёк, 5 кг, дворняга, чёрная' }
+            { intro: 'Кто подходит по критериям?', correct: '3', options: [
+                { id: '1', t: 'Чижик, 7 кг, дворняга, светлая' },
+                { id: '2', t: 'Найда, 5 кг, хаски, спокойная' },
+                { id: '3', t: 'Кнопка, 5 кг, дворняга, светлая, спокойная' },
+                { id: '4', t: 'Уголёк, 5 кг, дворняга, чёрная' }
             ]},
-            { intro: 'Под кабину нужен небольшой вес и «телегеничность» — спокойствие на камере. Кто из кандидатов уместен?', correct: '4', options: [
-                { id: '1', t: '🐕 Тузик, 6 кг, дворняга, лает в кабине' },
-                { id: '2', t: '🐕 Альма, 9 кг, дворняга, спокойная' },
-                { id: '3', t: '🐕 Пират, 5 кг, такса, нервная' },
-                { id: '4', t: '🐕 Звёздочка, 5 кг, дворняга, светлая, спокойная' }
+            { intro: 'Кто подходит по критериям?', correct: '4', options: [
+                { id: '1', t: 'Тузик, 6 кг, дворняга, лает в кабине' },
+                { id: '2', t: 'Альма, 9 кг, дворняга, спокойная' },
+                { id: '3', t: 'Пират, 5 кг, такса, нервная' },
+                { id: '4', t: 'Звёздочка, 5 кг, дворняга, светлая, спокойная' }
             ]},
-            { intro: 'Снова проверьте чек-лист: до 6 кг, дворняга, светлый окрас, спокойствие, только сука.', correct: '2', options: [
-                { id: '1', t: '🐕 Стрелка-макет, 5 кг, дворняга, тёмная' },
-                { id: '2', t: '🐕 Чернушка, 5 кг, дворняга, светло-палевый, спокойная' },
-                { id: '3', t: '🐕 Шарик, 5 кг, бульдог, светлый' },
-                { id: '4', t: '🐕 Рыжик, 5 кг, дворняга, пугливая' }
+            { intro: 'Кто подходит по критериям?', correct: '2', options: [
+                { id: '1', t: 'Стрелка, 5 кг, дворняга, тёмная' },
+                { id: '2', t: 'Чернушка, 5 кг, дворняга, светло-палевый, спокойная' },
+                { id: '3', t: 'Шарик, 5 кг, бульдог, светлый' },
+                { id: '4', t: 'Рыжик, 5 кг, дворняга, пугливая' }
             ]}
         ];
 
         const GAGARIN_TASK = {
-            intro: 'Ориентир из архивных описаний: пульс около 64 уд/мин, систолическое давление ~115 мм рт. ст., масса ~68 кг. Подведите ползунки к этому коридору.',
+            intro: 'Вспомните показатели Ю.А. Гагарина. Подведите ползунки к этому коридору.',
             pulse: [60, 70],
             pressure: [110, 120],
             weight: [65, 72],
-            okMsg: '✅ Допуск! Параметры в допустимом коридоре для предстартового состояния Ю.А. Гагарина.',
-            failMsg: '❌ Вне коридора. Подстройте пульс, давление и массу ближе к типичным предстартовым значениям.'
+            okMsg: 'Допуск! Параметры в допустимом коридоре для предстартового состояния Ю.А. Гагарина.',
+            failMsg: 'Вне коридора. Подстройте пульс, давление и массу ближе к типичным предстартовым значениям.'
         };
 
         /** Ровно одно утверждение с fake: true — неверно относительно текста этапа 5. Порядок строк при показе перемешивается. */
@@ -5540,7 +5801,7 @@
                 { t: 'Первым в отечественной пилотируемой программе подробно описал космическую болезнь Юрий Гагарин во время «Востока-1».', fake: true }
             ]},
             { items: [
-                { t: 'У Титова на момент полёта «Востока-2» было 25 лет — на тот момент он был самым молодым космонавтом.', fake: false },
+                { t: 'Титову на момент полёта «Востока-2» было 25 лет — он был самым молодым космонавтом.', fake: false },
                 { t: 'Валентина Терешкова стала первой женщиной в космосе в июне 1963 года.', fake: false },
                 { t: 'У Андрияна Николаева в групповом полёте 1962 года длительность составила около четырёх суток — рекорд для той пары полётов.', fake: false },
                 { t: 'Групповой полёт Николаева и Поповича на двух «Востоках» состоялся в 1961 году — сразу после одиночного полёта Гагарина.', fake: true }
@@ -5886,7 +6147,7 @@
                 card.disabled = true;
                 __orbitMemoryPickedIndex = null;
                 if (grid.querySelectorAll('.orbit-memory-card.matched').length === 8) {
-                    res.innerHTML = '✅ Все пары найдены! Можно переходить к следующему этапу.';
+                    res.innerHTML = 'Все пары найдены! Можно переходить к следующему этапу.';
                     res.style.background = '#1e4a3b';
                     completedTasks.stage6 = true;
                     document.getElementById('stage5-next').disabled = false;
@@ -5902,7 +6163,7 @@
                 __orbitMemoryLock = true;
                 first.classList.add('orbit-memory-wrong');
                 card.classList.add('orbit-memory-wrong');
-                res.innerHTML = '❌ Это не пара. Выберите другую комбинацию.';
+                res.innerHTML = 'Это не пара. Выберите другую комбинацию.';
                 res.style.background = '#5a2e3a';
                 setTimeout(() => {
                     first.classList.remove('orbit-memory-wrong');
@@ -5918,11 +6179,7 @@
         function renderEarthSortVariant() {
             const items = shuffleCopy(EARTH_SORT_VARIANTS[questPicks.quiz7].items);
             document.getElementById('varietyTask7Mount').innerHTML =
-                `<p class="earth-sort-legend" role="note">
-                    <span class="earth-sort-legend__pill earth-sort-legend__pill--earth"><i class="fas fa-hospital" aria-hidden="true"></i> В первую очередь про Землю и перенос опыта</span>
-                    <span class="earth-sort-legend__pill earth-sort-legend__pill--orbit"><i class="fas fa-satellite" aria-hidden="true"></i> В первую очередь про орбиту и экипаж</span>
-                </p>
-                <div class="earth-sort-list" id="earthSortList">${items.map((it, i) =>
+                `<div class="earth-sort-list" id="earthSortList">${items.map((it, i) =>
                     `<div class="earth-sort-row" data-correct="${it.bucket}" data-row="${i}">
                         <p class="earth-sort-text">${it.t}</p>
                         <div class="earth-sort-actions">
@@ -6044,13 +6301,13 @@
         function checkDog() {
             const selected = document.querySelector('#dogQuiz .option-item.selected');
             if (!selected) {
-                document.getElementById('dogResult').innerHTML = '⚠️ Выберите собаку!';
+                document.getElementById('dogResult').innerHTML = 'Выберите собаку!';
                 document.getElementById('dogResult').style.background = '#5a2e3a';
                 return;
             }
             taskAttempts.stage2++;
             if (selected.dataset.dog === __dogCorrectId) {
-                document.getElementById('dogResult').innerHTML = '✅ Верно! Кандидат соответствует условиям варианта.';
+                document.getElementById('dogResult').innerHTML = 'Верно! Кандидат соответствует условиям варианта.';
                 document.getElementById('dogResult').style.background = '#1e4a3b';
                 completedTasks.stage2 = true;
                 document.getElementById('stage2-next').disabled = false;
@@ -6061,7 +6318,7 @@
                 );
                 updateMissionHud();
             } else {
-                document.getElementById('dogResult').innerHTML = '❌ Не подходит. Перечитайте формулировку задания и критерии на этапе.';
+                document.getElementById('dogResult').innerHTML = 'Не подходит. Перечитайте формулировку задания и критерии отбора.';
                 document.getElementById('dogResult').style.background = '#5a2e3a';
             }
         }
@@ -6098,13 +6355,13 @@
             const selected = document.querySelector('#wave1SpotQuiz .option-item.selected');
             const el = document.getElementById('varietyMatchResult');
             if (!selected) {
-                el.innerHTML = '⚠️ Выберите фразу, в которой есть ошибка.';
+                el.innerHTML = 'Выберите фразу, в которой есть ошибка.';
                 el.style.background = '#5a2e3a';
                 return;
             }
             taskAttempts.stage5++;
             if (selected.dataset.wave1spot === __wave1FakeId) {
-                el.innerHTML = '✅ Верно: вы нашли неточность.';
+                el.innerHTML = 'Верно: вы нашли неточность.';
                 el.style.background = '#1e4a3b';
                 completedTasks.stage5 = true;
                 document.getElementById('stage4-next').disabled = false;
@@ -6115,7 +6372,7 @@
                 );
                 updateMissionHud();
             } else {
-                el.innerHTML = '❌ Эта фраза соответствует тексту этапа. Ищите другую.';
+                el.innerHTML = 'Эта фраза соответствует тексту этапа. Ищите другую.';
                 el.style.background = '#5a2e3a';
             }
         }
@@ -6124,7 +6381,7 @@
             const rows = document.querySelectorAll('#earthSortList .earth-sort-row');
             const el = document.getElementById('varietyRebusResult');
             if (!rows.length) {
-                el.innerHTML = '⚠️ Задание не загружено. Обновите этап.';
+                el.innerHTML = 'Задание не загружено. Обновите этап.';
                 el.style.background = '#5a2e3a';
                 return;
             }
@@ -6136,17 +6393,17 @@
                 else if (pick !== row.dataset.correct) wrong = true;
             });
             if (missing) {
-                el.innerHTML = '⚠️ Для каждой фразы выберите «Земля» или «Орбита».';
+                el.innerHTML = 'Для каждой фразы выберите «Земля» или «Орбита».';
                 el.style.background = '#5a2e3a';
                 return;
             }
             taskAttempts.stage7++;
             if (wrong) {
-                el.innerHTML = '❌ Где-то неточно. Подумайте: это про больницы, изоляции на Земле и перенос методов — или про сам полёт, станцию и жизнь экипажа на витке.';
+                el.innerHTML = 'Где-то неточно. Подумайте: это про больницы, изоляции на Земле и перенос методов — или про сам полёт, станцию и жизнь экипажа на витке.';
                 el.style.background = '#5a2e3a';
                 return;
             }
-            el.innerHTML = '✅ Все шесть фраз разложены верно. Отличная работа!';
+            el.innerHTML = 'Все шесть фраз разложены верно. Отличная работа!';
             el.style.background = '#1e4a3b';
             completedTasks.stage7 = true;
             document.getElementById('stage6-next').disabled = false;
@@ -6189,6 +6446,49 @@
         document.getElementById('weightSlider')?.addEventListener('input', function() {
             document.getElementById('weightValue').textContent = this.value;
         });
+
+        (function initGazenkoCarousel() {
+            const root = document.getElementById('gazenkoCarousel');
+            const track = document.getElementById('gazenkoCarouselTrack');
+            if (!root || !track) return;
+            const slides = track.querySelectorAll('.dog-gazenko-carousel__slide');
+            const prev = document.getElementById('gazenkoCarouselPrev');
+            const next = document.getElementById('gazenkoCarouselNext');
+            const dotsWrap = document.getElementById('gazenkoCarouselDots');
+            const n = slides.length;
+            if (n === 0) return;
+            let i = 0;
+            function go(idx) {
+                i = ((idx % n) + n) % n;
+                track.style.transform = 'translateX(-' + (i * 100) + '%)';
+                const single = n <= 1;
+                if (prev) prev.hidden = single;
+                if (next) next.hidden = single;
+                if (dotsWrap) {
+                    dotsWrap.querySelectorAll('.dog-gazenko-carousel__dot').forEach(function(b, j) {
+                        b.classList.toggle('is-active', j === i);
+                        b.setAttribute('aria-selected', j === i ? 'true' : 'false');
+                    });
+                }
+                root.setAttribute('aria-label', 'Слайд ' + (i + 1) + ' из ' + n);
+            }
+            if (dotsWrap) {
+                dotsWrap.innerHTML = '';
+                for (let j = 0; j < n; j++) {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'dog-gazenko-carousel__dot' + (j === 0 ? ' is-active' : '');
+                    b.setAttribute('aria-label', 'Показать слайд ' + (j + 1) + ' из ' + n);
+                    b.setAttribute('role', 'tab');
+                    b.setAttribute('aria-selected', j === 0 ? 'true' : 'false');
+                    b.addEventListener('click', function() { go(j); });
+                    dotsWrap.appendChild(b);
+                }
+            }
+            if (prev) prev.addEventListener('click', function() { go(i - 1); });
+            if (next) next.addEventListener('click', function() { go(i + 1); });
+            go(0);
+        })();
 
         function restartGame() {
             location.reload();
