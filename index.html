@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квест: Стань космонавтом</title>
+    <title>Стань космонавтом</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -235,10 +235,11 @@
         .splash-sub {
             font-size: 1.05rem;
             color: #9ec9e0;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
             line-height: 1.5;
         }
         .splash-enter-btn {
+            margin-top: 5.5rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -632,18 +633,18 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 1rem 1.5rem;
-            margin: 1rem auto 1.15rem;
-            padding: 1rem 1.15rem;
-            max-width: 28rem;
-            border-radius: 22px;
+            gap: 0.81rem 1.215rem;
+            margin: 0.81rem auto 0.9315rem;
+            padding: 0.81rem 0.9315rem;
+            max-width: 22.68rem;
+            border-radius: 17.82px;
             background:
                 linear-gradient(135deg, rgba(57, 255, 189, 0.06) 0%, transparent 50%),
                 rgba(8, 18, 38, 0.65);
             border: 1px solid rgba(255, 184, 77, 0.28);
         }
         .finale-cert__avatar {
-            font-size: 3.2rem;
+            font-size: 2.592rem;
             line-height: 1;
             filter: drop-shadow(0 0 12px rgba(57, 255, 189, 0.35));
         }
@@ -651,8 +652,8 @@
             text-align: left;
         }
         .finale-cert__code {
-            margin: 0 0 0.35rem;
-            font-size: 0.95rem;
+            margin: 0 0 0.2835rem;
+            font-size: 0.7695rem;
             color: #d4e6f0;
         }
         .finale-cert__code strong {
@@ -662,31 +663,31 @@
         }
         .finale-cert__rank {
             margin: 0;
-            font-size: 1.05rem;
+            font-size: 0.8505rem;
             font-weight: 800;
             color: #fff;
             text-shadow: 0 0 18px rgba(255, 184, 77, 0.25);
         }
         .finale-cert__class {
             display: block;
-            margin-top: 0.2rem;
-            font-size: 0.78rem;
+            margin-top: 0.162rem;
+            font-size: 0.6318rem;
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: #39ffbd;
         }
         .finale-score-detail {
-            font-size: 1.02rem;
+            font-size: 0.8262rem;
             color: #ffb84d;
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.3645rem;
         }
         .finale-flavor {
-            font-size: 1.01rem;
+            font-size: 0.8181rem;
             color: #b8d4e8;
             line-height: 1.5;
-            max-width: 32rem;
-            margin: 0 auto 0.85rem;
+            max-width: 25.92rem;
+            margin: 0 auto 0.6885rem;
         }
         @keyframes finale-pop {
             from {
@@ -1245,11 +1246,50 @@
             margin: 0 auto;
             animation: dogRocketFloat 5s ease-in-out infinite;
         }
-        .dog-orbit-svg-wrap svg {
+        .dog-orbit-cosmic-stack {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(57, 255, 189, 0.3),
+                inset 0 0 50px rgba(0, 0, 0, 0.45);
+        }
+        .dog-orbit-cosmic-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(ellipse 110% 70% at 50% -5%, rgba(57, 255, 189, 0.14) 0%, transparent 52%),
+                radial-gradient(ellipse 80% 55% at 100% 40%, rgba(138, 109, 233, 0.12) 0%, transparent 48%),
+                radial-gradient(ellipse 60% 45% at 0% 75%, rgba(255, 170, 51, 0.06) 0%, transparent 45%),
+                linear-gradient(168deg, #0a1830 0%, #0d2240 42%, #050a14 100%);
+        }
+        .dog-orbit-cosmic-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0.72;
+            pointer-events: none;
+            background-image:
+                radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.75) 50%, transparent 52%),
+                radial-gradient(1.2px 1.2px at 78% 12%, rgba(200, 230, 255, 0.65) 50%, transparent 52%),
+                radial-gradient(1px 1px at 42% 38%, rgba(255, 255, 255, 0.45) 50%, transparent 52%),
+                radial-gradient(1px 1px at 88% 58%, rgba(255, 255, 255, 0.5) 50%, transparent 52%),
+                radial-gradient(1px 1px at 22% 72%, rgba(57, 255, 189, 0.4) 50%, transparent 52%),
+                radial-gradient(1px 1px at 65% 82%, rgba(255, 255, 255, 0.35) 50%, transparent 52%),
+                radial-gradient(1.5px 1.5px at 52% 8%, rgba(255, 255, 255, 0.55) 50%, transparent 52%),
+                radial-gradient(1px 1px at 8% 48%, rgba(255, 255, 255, 0.4) 50%, transparent 52%);
+        }
+        .dog-orbit-dog-img {
+            position: relative;
+            z-index: 1;
             width: 100%;
             height: auto;
             display: block;
-            filter: drop-shadow(0 0 12px rgba(57, 255, 189, 0.25));
+            vertical-align: bottom;
+            filter: drop-shadow(0 0 14px rgba(57, 255, 189, 0.22));
         }
         @keyframes dogRocketFloat {
             0%, 100% { transform: translateY(0); }
@@ -2306,9 +2346,9 @@
         }
         .gagarin-dossier-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 1fr) minmax(0, clamp(140px, 30%, 260px));
             gap: 2rem;
-            align-items: start;
+            align-items: center;
         }
         .gagarin-dossier-badge {
             display: inline-flex;
@@ -2379,6 +2419,9 @@
             background: linear-gradient(145deg, rgba(255, 184, 77, 0.15), rgba(138, 109, 233, 0.12));
             border: 2px solid rgba(255, 170, 51, 0.3);
             box-shadow: 0 0 40px rgba(255, 170, 51, 0.08);
+            justify-self: center;
+            width: 100%;
+            max-width: 260px;
         }
         .gagarin-portrait-frame .gallery-placeholder {
             border-radius: 22px;
@@ -2387,6 +2430,18 @@
         }
         .gagarin-portrait-frame .gallery-placeholder.gallery-placeholder--photo {
             aspect-ratio: auto;
+        }
+        /* Досье: портрет компактнее, ближе по высоте к колонке с текстом */
+        .gagarin-dossier .gagarin-portrait-frame .gallery-placeholder--photo img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: min(52vh, 26rem);
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            object-fit: contain;
+            object-position: center top;
         }
         .gagarin-why-callout {
             margin-top: 1rem;
@@ -2941,6 +2996,12 @@
         }
         .orbit-med-chart-fill--micro {
             width: 14%;
+            /* Шире общего min-width полосы: на узком экране 14% и 2.75rem не хватает под «1 сутки*» */
+            min-width: 5.5rem;
+            max-width: 100%;
+            justify-content: center;
+            padding-left: 0.4rem;
+            padding-right: 0.4rem;
             background: linear-gradient(90deg, #fbbf24, #38bdf8);
         }
         .orbit-med-chart-fill--240 {
@@ -3719,14 +3780,14 @@
             }
         }
         .story-card.finale-hero {
-            margin-top: 2.3rem;
-            margin-bottom: 2.3rem;
+            margin-top: 1.863rem;
+            margin-bottom: 1.863rem;
         }
         .finale-hero {
             text-align: center;
             border: 2px solid rgba(255, 184, 77, 0.35);
-            border-radius: 46px;
-            padding: 2.3rem 2.0125rem 2.5875rem;
+            border-radius: 37.26px;
+            padding: 1.863rem 1.630125rem 2.095875rem;
             background:
                 radial-gradient(ellipse 100% 80% at 50% 0%, rgba(255, 170, 51, 0.12) 0%, transparent 55%),
                 linear-gradient(165deg, #0a1528, #0d2238 40%, #0a1f2a);
@@ -3751,24 +3812,24 @@
             z-index: 1;
         }
         .finale-hero-icon {
-            font-size: clamp(2.3rem, 9.2vw, 3.1625rem);
+            font-size: clamp(1.863rem, 7.452vw, 2.561625rem);
             color: #ffb84d;
-            margin-bottom: 0.5175rem;
+            margin-bottom: 0.419175rem;
             filter: drop-shadow(0 0 20px rgba(255, 184, 77, 0.45));
         }
         .finale-hero h2 {
-            margin: 0 0 0.6325rem;
-            font-size: clamp(1.3225rem, 4.83vw, 1.8975rem);
+            margin: 0 0 0.512325rem;
+            font-size: clamp(1.071225rem, 3.9123vw, 1.536975rem);
             line-height: 1.2;
             color: #fff;
             text-shadow: 0 0 24px rgba(255, 184, 77, 0.35);
         }
         .finale-hero-intro {
-            font-size: 1.0925rem;
+            font-size: 0.884925rem;
             color: #d4e6f0;
             line-height: 1.45;
-            max-width: 36.8rem;
-            margin: 0 auto 0.9775rem;
+            max-width: 29.808rem;
+            margin: 0 auto 0.791775rem;
         }
         .finale-med-callout {
             text-align: left;
@@ -3804,13 +3865,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.46rem;
-            margin-bottom: 0.8625rem;
+            gap: 0.3726rem;
+            margin-bottom: 0.698625rem;
         }
         .finale-pill {
-            padding: 0.368rem 0.6325rem;
+            padding: 0.29808rem 0.512325rem;
             border-radius: 999px;
-            font-size: 0.713rem;
+            font-size: 0.57753rem;
             font-weight: 800;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -3819,20 +3880,20 @@
             color: #e9d5ff;
         }
         .finale-score {
-            font-size: 1.15rem;
+            font-size: 0.9315rem;
             color: #ffb84d;
-            margin-bottom: 0.6325rem;
+            margin-bottom: 0.512325rem;
         }
         .finale-museum {
-            margin: 0 0 0.9775rem;
-            font-size: 1.012rem;
+            margin: 0 0 0.791775rem;
+            font-size: 0.81972rem;
             color: #9ec9e0;
             line-height: 1.45;
         }
         .finale-hero .stage-button {
-            margin-top: 0.1725rem;
-            padding: 0.6325rem 1.4375rem;
-            font-size: 1.0925rem;
+            margin-top: 0.139725rem;
+            padding: 0.512325rem 1.164375rem;
+            font-size: 0.884925rem;
         }
         .finale-med-callout--standalone {
             margin: 2rem auto;
@@ -4011,6 +4072,11 @@
                 grid-template-columns: 1fr;
                 gap: 0.45rem;
             }
+            .orbit-med-chart-fill--micro {
+                /* На мобильных трек на всю ширину; чуть мельче шрифт для запаса */
+                font-size: 0.65rem;
+                min-width: min(100%, 5.75rem);
+            }
             .orbit-med-split,
             .orbit-med-split--reverse {
                 grid-template-columns: 1fr;
@@ -4135,12 +4201,12 @@
         <div class="splash-layer splash-orbit splash-orbit--inner" aria-hidden="true"></div>
         <div class="splash-layer splash-meteor" aria-hidden="true"></div>
         <div class="splash-content">
-            <p class="splash-eyebrow">Интерактивный квест</p>
-            <h1 class="splash-title">Космическая медицина:<br>от первых собак на ракетах до орбитальных лабораторий</h1>
-            <p class="splash-sub">От первых собак на ракетах до орбитальных лабораторий — путь через историю и практические задания.</p>
+            <p class="splash-eyebrow">Интерактивное погружение</p>
+            <h1 class="splash-title">Космическая медицина</h1>
+            <p class="splash-sub">Когда путь на орбиту начинается со строчки «допущен к полёту»</p>
             <button type="button" class="splash-enter-btn" id="splash-enter-btn" autofocus>
                 <i class="fas fa-rocket" aria-hidden="true"></i>
-                К инициализации полёта
+                Старт
             </button>
         </div>
     </div>
@@ -4150,7 +4216,7 @@
         <div style="font-size: 3rem; color: #39ffbd; margin-bottom: 2rem;">
             <i class="fas fa-rocket"></i>
         </div>
-        <div class="loading-text">ИНИЦИАЛИЗАЦИЯ ПОЛЕТА</div>
+        <div class="loading-text">ПОДГОТОВКА К ПОЛЕТУ</div>
         <div class="loading-bar">
             <div class="loading-progress" id="loading-progress"></div>
         </div>
@@ -4159,11 +4225,11 @@
     <!-- ЭКРАН ВЫБОРА АВАТАРА -->
     <div id="avatar-screen">
         <div class="avatar-container">
-            <div class="avatar-title">СОЗДАЙ ПЕРСОНАЖА</div>
+            <div class="avatar-title">СОЗДАЙТЕ ПЕРСОНАЖА</div>
             
             <div class="name-input-container">
-                <div class="name-label">Твое имя:</div>
-                <input type="text" id="player-name-input" class="name-input" placeholder="Введи имя" maxlength="20">
+                <div class="name-label">Ваше имя:</div>
+                <input type="text" id="player-name-input" class="name-input" placeholder="Введите имя" maxlength="20">
             </div>
 
             <div class="avatar-subtitle">Аватар:</div>
@@ -4218,8 +4284,8 @@
                         <div style="flex: 1;">
                             <i class="fas fa-microphone-alt" style="font-size: 4rem; color: #39ffbd; margin-bottom: 1rem;"></i>
                             <h3>Приветствие команды</h3>
-                            <p>Добро пожаловать в Центр подготовки космонавтов, <span id="player-name-greeting">Стажер</span>! Меня зовут полковник медицинской службы Алексей Петров. Я руководитель медицинской программы подготовки.</p>
-                            <p>За 9 этапов вы узнаете всю историю космической медицины — от первых собак-разведчиков до современных врачей на орбите. Каждый этап содержит исторические материалы, фотографии из архивов и практические задания.</p>
+                            <p>Добро пожаловать в Центр подготовки космонавтов, <span id="player-name-greeting">Стажер</span>!</p>
+                            <p>Вы узнаете всю историю космической медицины — от первых собак-разведчиков до современных врачей на орбите. Каждый раздел содержит исторические материалы, фотографии из архивов и практические задания.</p>
                             <p>Готовы? Тогда вперед — к звездам!</p>
                         </div>
                         <div style="flex: 1; text-align: center;">
@@ -4314,43 +4380,12 @@
                     <div class="dog-orbit-wrap">
                         <aside class="dog-orbit-visual">
                             <div class="dog-orbit-svg-wrap">
-                                <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Стилизованная иллюстрация: собака в гермокабине ракеты">
-                                    <defs>
-                                        <linearGradient id="rocketMetal" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#1e3a5c"/>
-                                            <stop offset="100%" style="stop-color:#0f2844"/>
-                                        </linearGradient>
-                                        <linearGradient id="rocketFlame" x1="50%" y1="0%" x2="50%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#39ffbd;stop-opacity:0.95"/>
-                                            <stop offset="55%" style="stop-color:#8a6de9;stop-opacity:0.7"/>
-                                            <stop offset="100%" style="stop-color:#39ffbd;stop-opacity:0"/>
-                                        </linearGradient>
-                                    </defs>
-                                    <circle cx="36" cy="42" r="1.2" fill="#d4e6f0" opacity="0.7"/>
-                                    <circle cx="168" cy="58" r="1" fill="#d4e6f0" opacity="0.5"/>
-                                    <circle cx="152" cy="28" r="0.8" fill="#39ffbd" opacity="0.6"/>
-                                    <circle cx="24" cy="120" r="0.9" fill="#8a6de9" opacity="0.5"/>
-                                    <path d="M100 248 L88 268 L100 262 L112 268 Z" fill="url(#rocketFlame)"/>
-                                    <path d="M100 255 L94 275 L100 270 L106 275 Z" fill="url(#rocketFlame)" opacity="0.6"/>
-                                    <path d="M100 18 L138 175 L100 198 L62 175 Z" fill="url(#rocketMetal)" stroke="#39ffbd" stroke-width="2.2" stroke-linejoin="round"/>
-                                    <path d="M62 175 L48 205 L62 198 Z" fill="#152d48" stroke="#39ffbd" stroke-width="1.5"/>
-                                    <path d="M138 175 L152 205 L138 198 Z" fill="#152d48" stroke="#39ffbd" stroke-width="1.5"/>
-                                    <ellipse cx="100" cy="188" rx="38" ry="10" fill="#0a1525" stroke="#8a6de9" stroke-width="1.2" opacity="0.9"/>
-                                    <circle cx="100" cy="102" r="34" fill="#050d18" stroke="#8a6de9" stroke-width="2.5"/>
-                                    <circle cx="100" cy="102" r="28" fill="#0c1828" stroke="#39ffbd" stroke-width="1" opacity="0.5"/>
-                                    <!-- силуэт собаки в иллюминаторе -->
-                                    <ellipse cx="100" cy="108" rx="16" ry="13" fill="#39ffbd" opacity="0.88"/>
-                                    <ellipse cx="100" cy="118" rx="10" ry="7" fill="#39ffbd" opacity="0.75"/>
-                                    <path d="M86 98 L82 82 L92 94 Z" fill="#39ffbd" opacity="0.9"/>
-                                    <path d="M114 98 L118 82 L108 94 Z" fill="#39ffbd" opacity="0.9"/>
-                                    <circle cx="94" cy="104" r="2.5" fill="#0a1525"/>
-                                    <circle cx="106" cy="104" r="2.5" fill="#0a1525"/>
-                                    <ellipse cx="100" cy="112" rx="3" ry="2" fill="#0a1525" opacity="0.35"/>
-                                    <path d="M100 22 L100 8" stroke="#39ffbd" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-                                    <circle cx="100" cy="6" r="3" fill="#ffaa33" opacity="0.85"/>
-                                </svg>
+                                <div class="dog-orbit-cosmic-stack">
+                                    <div class="dog-orbit-cosmic-bg" aria-hidden="true"></div>
+                                    <img class="dog-orbit-dog-img" src="images/dog.png" alt="Собака в космосе" width="440" height="660" loading="lazy" decoding="async">
+                                </div>
                             </div>
-                            <p class="dog-orbit-visual-caption">Собака в гермокабине — проверка жизнеобеспечения до полёта человека</p>
+                            <p class="dog-orbit-visual-caption">Собаки были первыми, кого отправили в космос: на них проверяли, выдержит ли живое существо старт, невесомость и возвращение, как работают кислород, температура и давление.</p>
                         </aside>
 
                         <div class="dog-orbit-track">
@@ -4662,7 +4697,7 @@
                             <div class="gallery-placeholder gallery-placeholder--photo">
                                 <img src="images/Как проходили обследование.png" alt="Медицинское обследование кандидатов в космонавты" width="400" height="300" loading="lazy" decoding="async">
                             </div>
-                            <div class="gallery-caption">Как проходили обследование</div>
+                            <div class="gallery-caption">Обследование перед полётом</div>
                         </div>
                     </div>
                 </div>
@@ -4764,7 +4799,6 @@
                 <div class="stage-banner stage-banner--gagarin">
                     <h2>ПОДГОТОВКА ГАГАРИНА</h2>
                     <p>Путь к первому полёту человека</p>
-                    <span class="stage-banner-tag">Восток-1 · 1961</span>
                 </div>
 
                 <div class="story-card gagarin-dossier">
@@ -4872,7 +4906,7 @@
                     <div class="gallery">
                         <div class="gallery-item">
                             <div class="gallery-placeholder gallery-placeholder--photo">
-                                <img src="images/Подготовка к прыжку с парашютом_Гагарин.jpg" alt="Ю. А. Гагарин готовится к прыжку с парашютом" width="400" height="300" loading="lazy" decoding="async">
+                                <img src="images/Гагарин_прыжок с парашютом.jpg" alt="Ю. А. Гагарин готовится к прыжку с парашютом" width="400" height="300" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-caption">Подготовка к прыжку с парашютом</div>
                         </div>
@@ -4970,7 +5004,7 @@
                         <div class="wave1-cosmo-split">
                             <div class="wave1-cosmo-visual">
                                 <div class="gallery-placeholder gallery-placeholder--photo">
-                                    <img src="images/Титов.png" alt="Герман Степанович Титов" width="300" height="225" loading="lazy" decoding="async">
+                                    <img src="images/Титов_портрет.png" alt="Герман Степанович Титов" width="300" height="225" loading="lazy" decoding="async">
                                 </div>
                             </div>
                             <div class="wave1-cosmo-body">
@@ -5151,7 +5185,7 @@
                         <span class="orbit-med-pill">Подготовка экипажей</span>
                         <h3>Юрий Александрович Сенкевич</h3>
                         <div class="gallery-placeholder gallery-placeholder--photo">
-                            <img src="images/Сенкевич.jpg" alt="Юрий Александрович Сенкевич в телестудии" width="400" height="250" loading="lazy" decoding="async">
+                            <img src="images/Сенкевич_портрет.jpg" alt="Юрий Александрович Сенкевич в телестудии" width="400" height="250" loading="lazy" decoding="async">
                         </div>
                         <p>Врач, кандидат медицинских наук. С <strong>1964 года</strong> в ИМБП: прошёл путь от младшего научного сотрудника до начальника <strong>учебно-тренировочного центра</strong> медико-биологической подготовки космонавтов.</p>
                         <p><strong>Более 30 лет</strong> участвовал в медицинском обеспечении пилотируемых полётов и экспериментов на биоспутниках; разрабатывал методы психофизиологического отбора и подготовки. В <strong>1965 году</strong> проходил подготовку к полёту по медицинской программе (макет «Восход»); назначение в экипаж не состоялось после закрытия программы. Автор десятков научных работ; широкой публике известен как создатель и ведущий передачи «Клуб путешественников».</p>
@@ -5246,7 +5280,7 @@
                 <!-- ЗАДАНИЕ 4: пары-память по этапу «врачи на орбите» -->
                 <div class="quiz-container" id="varietyTask6Wrap">
                     <div class="quiz-title"><i class="fas fa-clone" aria-hidden="true"></i> Задание: Найди пару</div>
-                    <p class="variety-task-hint">Все восемь карточек сразу с текстом — четыре пары. Нажмите первую карточку, затем вторую: если они одной пары (по смыслу раздела выше), обе закрепятся. Соберите четыре пары — кнопка «Далее» откроется сама. Повторный клик по выбранной карточке снимает выбор.</p>
+                    <p class="variety-task-hint">Нажмите первую карточку, затем вторую: если они одной пары — обе закрепятся. Повторный клик по выбранной карточке снимает выбор.</p>
                     <div id="varietyTask6Mount"></div>
                     <div id="varietyPuzzleResult" class="result-message"></div>
                 </div>
@@ -5258,8 +5292,7 @@
             <div class="game-stage" id="stage7">
                 <div class="stage-banner stage-banner--earth-med">
                     <h2>КОСМИЧЕСКАЯ МЕДИЦИНА — ЗЕМЛЕ</h2>
-                    <p>Когда орбитальные протоколы и приборы начинают лечить и на поверхности планеты</p>
-                    <span class="earth-banner-tag">Spin-off · от МКС до поликлиники</span>
+                    <p>Когда орбитальные протоколы и приборы начинают работать и на поверхности планеты</p>
                 </div>
 
                 <div class="story-card earth-spin-hero">
@@ -5668,7 +5701,7 @@
                 <div class="story-card finale-hero" id="finale-hero-card">
                     <div class="finale-hero-icon" aria-hidden="true"><i class="fas fa-star"></i></div>
                     <h2>ПОЗДРАВЛЯЕМ, <span id="final-player-name">КОСМОНАВТ</span>!</h2>
-                    <p class="finale-hero-intro">Вы прошли квест от первых ракет с собаками до сегодняшних стандартов отбора и орбитальных лабораторий.</p>
+                    <p class="finale-hero-intro">Вы познакомились с историей: от первых запусков ракет до сегодняшних стандартов отбора и орбитальных лабораторий.</p>
                     <div class="finale-pill-row">
                         <span class="finale-pill">Отбор и допуск</span>
                         <span class="finale-pill">Полёт и телеметрия</span>
@@ -5738,6 +5771,12 @@
             return a;
         }
 
+        function randomIntInclusive(min, max) {
+            const a = Math.ceil(min);
+            const b = Math.floor(max);
+            return Math.floor(Math.random() * (b - a + 1)) + a;
+        }
+
         const DOG_VARIANTS = [
             { intro: 'Кто подходит по критериям?', correct: '2', options: [
                 { id: '1', t: 'Шарик, 8 кг, породистый, пугливый' },
@@ -5765,7 +5804,7 @@
             ]},
             { intro: 'Кто подходит по критериям?', correct: '2', options: [
                 { id: '1', t: 'Стрелка, 5 кг, дворняга, тёмная' },
-                { id: '2', t: 'Чернушка, 5 кг, дворняга, светло-палевый, спокойная' },
+                { id: '2', t: 'Чернушка, 5 кг, дворняга, светлая, спокойная' },
                 { id: '3', t: 'Шарик, 5 кг, бульдог, светлый' },
                 { id: '4', t: 'Рыжик, 5 кг, дворняга, пугливая' }
             ]}
@@ -5784,7 +5823,7 @@
         const WAVE1_SPOT_FAKE_VARIANTS = [
             { items: [
                 { t: 'Герман Титов на «Востоке-2» провёл около 25 часов на орбите и впервые в пилотируемом полёте подробно описал симптомы космической болезни.', fake: false },
-                { t: 'Андриян Николаев и Павел Попович в 1962 году выполнили групповой полёт: их «Востоки» сближались на орбите примерно на 5 км.', fake: false },
+                { t: 'Андриян Николаев и Павел Попович в 1962 году выполнили групповой полёт: «Восток-3» и «Восток-4» сближались на орбите примерно на 5 км.', fake: false },
                 { t: 'Валентина Терешкова летала на «Востоке-6» под позывным «Чайка» почти три суток и совершила 48 витков.', fake: false },
                 { t: 'Первый выход человека в открытый космос состоялся на «Восходе-1» в октябре 1964 года вместе с полётом врача Бориса Егорова.', fake: true }
             ]},
@@ -5803,8 +5842,8 @@
             { items: [
                 { t: 'Титову на момент полёта «Востока-2» было 25 лет — он был самым молодым космонавтом.', fake: false },
                 { t: 'Валентина Терешкова стала первой женщиной в космосе в июне 1963 года.', fake: false },
-                { t: 'У Андрияна Николаева в групповом полёте 1962 года длительность составила около четырёх суток — рекорд для той пары полётов.', fake: false },
-                { t: 'Групповой полёт Николаева и Поповича на двух «Востоках» состоялся в 1961 году — сразу после одиночного полёта Гагарина.', fake: true }
+                { t: 'У Андрияна Николаева длительность полёта в 1962 году составила около четырёх суток .', fake: false },
+                { t: 'Групповой полёт Николаева и Поповича состоялся в 1961 году — сразу после одиночного полёта Гагарина.', fake: true }
             ]},
             { items: [
                 { t: 'Медики использовали данные Быковского и Терешковой для сравнения реакций мужского и женского организма в сходных условиях программы.', fake: false },
@@ -5832,18 +5871,18 @@
                 { id: '1', a: 'Газенко', b: 'Собаки, Гагарин и системы защиты экипажа' },
                 { id: '2', a: 'Сенкевич', b: 'С 1964 года в ИМБП, отбор и подготовка' },
                 { id: '3', a: '«Клуб путешественников»', b: 'Передача ведущего Сенкевича' },
-                { id: '4', a: 'Длительный космос', b: 'Кости, сон, изоляция — задачи врачей' }
+                { id: '4', a: 'Полгода и больше на орбите', b: 'Врачи следят за костной тканью, сном и психикой экипажа' }
             ]},
             { pairs: [
                 { id: '1', a: 'Егоров', b: 'Трое в кабине без скафандров' },
                 { id: '2', a: 'Поляков', b: 'Врач-исследователь, два длинных полёта' },
-                { id: '3', a: '437 суток', b: 'Шкала 100% на графике этапа' },
+                { id: '3', a: '437 суток', b: 'Рекорд длительности полёта' },
                 { id: '4', a: 'Газенко', b: 'Генерал-медик, академик РАН' }
             ]},
             { pairs: [
                 { id: '1', a: 'Наземная подготовка', b: 'Центр Сенкевича и тренировки экипажа' },
                 { id: '2', a: 'Телеметрия с орбиты', b: 'Врачи на Земле видят пульс и дыхание' },
-                { id: '3', a: 'Рекорд 1994–95', b: 'Полгода+ наблюдения одного человека' },
+                { id: '3', a: 'Рекорд 1994–95', b: 'Полгода + наблюдения одного человека' },
                 { id: '4', a: 'ИМБП сегодня', b: 'МКС, годовые экипажи, реабилитация' }
             ]}
         ];
@@ -5883,9 +5922,9 @@
                 { t: 'Эксперименты с выращиванием тканей в микрогравитации на борту станции', bucket: 'orbit' }
             ]},
             { items: [
-                { t: 'Восстановление мышечной массы после длительной постели — аналогии с постполётной реабилитацией', bucket: 'earth' },
+                { t: 'Восстановление мышц у пациентов после долгого постельного режима — по аналогии с постполётной реабилитацией', bucket: 'earth' },
                 { t: 'Протокол медосмотра и допуска экипажа перед стартом ракеты', bucket: 'orbit' },
-                { t: 'Профилактика остеопороза у пожилых с опорой на костные маркеры космонавтов', bucket: 'earth' },
+                { t: 'Профилактика остеопороза с опорой на костные маркеры космонавтов', bucket: 'earth' },
                 { t: 'Настройка скафандра и связи с бортинженером перед выходом в открытый космос', bucket: 'orbit' },
                 { t: 'Психологическая поддержка через видеосвязь в замкнутом наземном комплексе — как для экипажа', bucket: 'earth' },
                 { t: 'Отработка действий экипажа при пожаре на борту орбитальной станции', bucket: 'orbit' }
@@ -6069,15 +6108,23 @@
             const v = GAGARIN_TASK;
             __gagarinTaskConfig = { pulse: v.pulse, pressure: v.pressure, weight: v.weight, okMsg: v.okMsg, failMsg: v.failMsg };
             document.getElementById('gagarinTaskIntro').textContent = v.intro;
-            const pm = (v.pulse[0] + v.pulse[1]) / 2;
-            const pr = (v.pressure[0] + v.pressure[1]) / 2;
-            const wm = (v.weight[0] + v.weight[1]) / 2;
-            document.getElementById('pulseSlider').value = Math.round(pm);
-            document.getElementById('pressureSlider').value = Math.round(pr);
-            document.getElementById('weightSlider').value = Math.round(wm);
-            document.getElementById('pulseValue').textContent = Math.round(pm);
-            document.getElementById('pressureValue').textContent = Math.round(pr);
-            document.getElementById('weightValue').textContent = Math.round(wm);
+            const pulseEl = document.getElementById('pulseSlider');
+            const pressureEl = document.getElementById('pressureSlider');
+            const weightEl = document.getElementById('weightSlider');
+            const pm = randomIntInclusive(+pulseEl.min, +pulseEl.max);
+            const pr = randomIntInclusive(+pressureEl.min, +pressureEl.max);
+            const wm = randomIntInclusive(+weightEl.min, +weightEl.max);
+            pulseEl.value = pm;
+            pressureEl.value = pr;
+            weightEl.value = wm;
+            document.getElementById('pulseValue').textContent = String(pm);
+            document.getElementById('pressureValue').textContent = String(pr);
+            document.getElementById('weightValue').textContent = String(wm);
+            const gr = document.getElementById('gagarinResult');
+            if (gr) {
+                gr.innerHTML = '';
+                gr.style.background = '';
+            }
         }
 
         function renderWave1SpotFakeVariant() {
@@ -6313,7 +6360,7 @@
                 document.getElementById('stage2-next').disabled = false;
                 const pts = taskAttempts.stage2 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
                 showQuestToast(
-                    '+' + pts + ' баллов — «Павильон № 1»',
+                    '+' + pts + ' баллов — Отбор кандидата',
                     pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
                 );
                 updateMissionHud();
@@ -6341,7 +6388,7 @@
                 document.getElementById('stage3-next').disabled = false;
                 const pts = taskAttempts.stage4 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
                 showQuestToast(
-                    '+' + pts + ' баллов — предстартовый допуск',
+                    '+' + pts + ' баллов — Предстартовый допуск',
                     pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
                 );
                 updateMissionHud();
@@ -6367,7 +6414,7 @@
                 document.getElementById('stage4-next').disabled = false;
                 const pts = taskAttempts.stage5 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
                 showQuestToast(
-                    '+' + pts + ' баллов — «Найти ошибку»',
+                    '+' + pts + ' баллов — Найти ошибку',
                     pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
                 );
                 updateMissionHud();
@@ -6409,7 +6456,7 @@
             document.getElementById('stage6-next').disabled = false;
             const pts = taskAttempts.stage7 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
             showQuestToast(
-                '+' + pts + ' баллов — «Два контура»',
+                '+' + pts + ' баллов — Два контура',
                 pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
             );
             updateMissionHud();
