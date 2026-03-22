@@ -3601,11 +3601,32 @@
             .finale-modern-grid {
                 grid-template-columns: 1fr;
             }
+            .story-card.finale-modern-card {
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+            }
             .cosmo-mission-mobile-hint {
                 display: block;
             }
             .cosmo-mission-timeline {
                 padding: 0.15rem 0 0.25rem;
+                overflow-x: hidden;
+            }
+            /* Портрет / узкая ширина: iOS Safari даёт «белый экран» из‑за анимации filter и blur на большом слое */
+            .story-card.cosmo-timeline-wrap {
+                overflow-x: hidden;
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+            }
+            .cosmo-mission-rail::before {
+                animation: none !important;
+                filter: none;
+            }
+            .cosmo-mission-rail::after {
+                filter: none;
+            }
+            .cosmo-timeline-thumb i {
+                filter: none;
             }
             .cosmo-mission-backdrop {
                 opacity: 0.35;
