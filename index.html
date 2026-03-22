@@ -527,6 +527,196 @@
             padding: 2rem;
         }
 
+        /* Панель миссии (геймификация) */
+        .quest-hud {
+            position: sticky;
+            top: 0;
+            z-index: 45;
+            margin: 0;
+            padding: 0.55rem 1rem 0.65rem;
+            background:
+                linear-gradient(180deg, rgba(5, 10, 22, 0.97) 0%, rgba(5, 10, 22, 0.88) 100%);
+            border-bottom: 1px solid rgba(57, 255, 189, 0.22);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(12px);
+        }
+        .quest-hud__inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .quest-hud__meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem 1rem;
+            margin-bottom: 0.45rem;
+            font-size: 0.85rem;
+            color: #9ec9e0;
+        }
+        .quest-hud__points {
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: #ffb84d;
+        }
+        .quest-hud__points span:first-child {
+            font-size: 1.15rem;
+        }
+        .quest-hud__points-max {
+            font-weight: 600;
+            opacity: 0.75;
+            font-size: 0.8rem;
+        }
+        .quest-hud__tasks {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #39ffbd;
+        }
+        .quest-hud__bar {
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(138, 109, 233, 0.15);
+            overflow: hidden;
+            margin-bottom: 0;
+            border: 1px solid rgba(57, 255, 189, 0.12);
+        }
+        .quest-hud__bar-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #39ffbd, #8a6de9, #ffb84d);
+            box-shadow: 0 0 14px rgba(57, 255, 189, 0.45);
+            transition: width 0.45s ease;
+        }
+        .toast-root {
+            position: fixed;
+            top: 4.25rem;
+            right: 1rem;
+            z-index: 120;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            max-width: min(340px, calc(100vw - 2rem));
+            pointer-events: none;
+        }
+        .quest-toast {
+            padding: 0.65rem 0.85rem;
+            border-radius: 14px;
+            background: rgba(10, 22, 40, 0.95);
+            border: 1px solid rgba(57, 255, 189, 0.35);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+            color: #e0f2fe;
+            font-size: 0.88rem;
+            line-height: 1.35;
+            opacity: 0;
+            transform: translateX(12px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .quest-toast--show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .quest-toast strong {
+            display: block;
+            color: #39ffbd;
+            font-size: 0.92rem;
+            margin-bottom: 0.15rem;
+        }
+        .quest-toast span {
+            font-size: 0.8rem;
+            color: #9ec9e0;
+        }
+        .finale-cert {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem 1.5rem;
+            margin: 1rem auto 1.15rem;
+            padding: 1rem 1.15rem;
+            max-width: 28rem;
+            border-radius: 22px;
+            background:
+                linear-gradient(135deg, rgba(57, 255, 189, 0.06) 0%, transparent 50%),
+                rgba(8, 18, 38, 0.65);
+            border: 1px solid rgba(255, 184, 77, 0.28);
+        }
+        .finale-cert__avatar {
+            font-size: 3.2rem;
+            line-height: 1;
+            filter: drop-shadow(0 0 12px rgba(57, 255, 189, 0.35));
+        }
+        .finale-cert__meta {
+            text-align: left;
+        }
+        .finale-cert__code {
+            margin: 0 0 0.35rem;
+            font-size: 0.95rem;
+            color: #d4e6f0;
+        }
+        .finale-cert__code strong {
+            color: #ffb84d;
+            letter-spacing: 0.08em;
+            font-family: ui-monospace, 'Consolas', monospace;
+        }
+        .finale-cert__rank {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 18px rgba(255, 184, 77, 0.25);
+        }
+        .finale-cert__class {
+            display: block;
+            margin-top: 0.2rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #39ffbd;
+        }
+        .finale-score-detail {
+            font-size: 1.02rem;
+            color: #ffb84d;
+            margin-bottom: 0.45rem;
+        }
+        .finale-flavor {
+            font-size: 1.01rem;
+            color: #b8d4e8;
+            line-height: 1.5;
+            max-width: 32rem;
+            margin: 0 auto 0.85rem;
+        }
+        @keyframes finale-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .finale-hero--animate .finale-cert {
+            animation: finale-pop 0.65s ease forwards;
+        }
+        .finale-hero--animate .finale-score-detail {
+            animation: finale-pop 0.55s ease 0.1s both;
+        }
+        .finale-hero--animate .finale-flavor {
+            animation: finale-pop 0.55s ease 0.2s both;
+        }
+        @media (max-width: 640px) {
+            .toast-root {
+                top: auto;
+                bottom: 1rem;
+                right: 0.75rem;
+                left: 0.75rem;
+                max-width: none;
+            }
+        }
+
         /* ЭТАПЫ ИГРЫ */
         .game-stage {
             display: none;
@@ -3756,6 +3946,18 @@
             <div class="cosmic-bg-stars"></div>
             <div class="cosmic-bg-grid"></div>
         </div>
+        <aside id="quest-hud" class="quest-hud" hidden aria-label="Прогресс миссии">
+            <div class="quest-hud__inner">
+                <div class="quest-hud__meta">
+                    <span class="quest-hud__points"><span id="quest-hud-points">0</span> <span class="quest-hud__points-max">/ 100 баллов</span></span>
+                    <span class="quest-hud__tasks" id="quest-hud-tasks">Задания: 0 из 5</span>
+                </div>
+                <div class="quest-hud__bar" id="quest-hud-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Баллы за миссию">
+                    <div class="quest-hud__bar-fill" id="quest-hud-bar-fill"></div>
+                </div>
+            </div>
+        </aside>
+        <div id="toast-root" class="toast-root" aria-live="polite"></div>
         <div class="container">
             <!-- ЭТАП 1: ПРИВЕТСТВИЕ -->
             <div class="game-stage active" id="stage1">
@@ -5193,7 +5395,7 @@
             <!-- ЭТАП 9: ПОЗДРАВЛЕНИЕ И ПОДВАЛ -->
             <div class="game-stage" id="stage9">
                 <!-- ФИНАЛ -->
-                <div class="story-card finale-hero">
+                <div class="story-card finale-hero" id="finale-hero-card">
                     <div class="finale-hero-icon" aria-hidden="true"><i class="fas fa-star"></i></div>
                     <h2>ПОЗДРАВЛЯЕМ, <span id="final-player-name">КОСМОНАВТ</span>!</h2>
                     <p class="finale-hero-intro">Вы прошли квест от первых ракет с собаками до сегодняшних стандартов отбора и орбитальных лабораторий.</p>
@@ -5202,7 +5404,16 @@
                         <span class="finale-pill">Полёт и телеметрия</span>
                         <span class="finale-pill">Возвращение и реабилитация</span>
                     </div>
-                    <p class="finale-score">Ваши результаты: <span id="final-score"></span></p>
+                    <div class="finale-cert" id="finale-cert-block">
+                        <div class="finale-cert__avatar" id="final-avatar-emoji" aria-hidden="true">👨‍🚀</div>
+                        <div class="finale-cert__meta">
+                            <p class="finale-cert__code">Код миссии: <strong id="final-mission-code">—</strong></p>
+                            <p class="finale-cert__rank" id="final-rank-line">—</p>
+                            <span class="finale-cert__class" id="final-rank-class"></span>
+                        </div>
+                    </div>
+                    <p class="finale-score-detail" id="final-score-block">Ваши результаты: <span id="final-score">—</span></p>
+                    <p class="finale-flavor" id="final-flavor-text"></p>
                     <p class="finale-museum">Спасибо за прохождение квеста. Ссылка на музей и перечень источников — в подвале страницы ниже.</p>
                     <button class="stage-button" onclick="restartGame()">ПРОЙТИ ЗАНОВО</button>
                 </div>
@@ -5237,6 +5448,7 @@
         // Состояние игры
         let selectedAvatar = null;
         let playerName = '';
+        let playerAvatarEmoji = '👨‍🚀';
         let currentStage = 1;
         let completedTasks = {
             stage2: false,
@@ -5245,6 +5457,9 @@
             stage6: false,  // пары-память
             stage7: false   // вопрос «космос и Земля»
         };
+
+        let taskAttempts = { stage2: 0, stage4: 0, stage5: 0, stage6: 0, stage7: 0 };
+        let __orbitMemoryWrongMatches = 0;
 
         let questPicks = { dog: 0, wave1: 0, puzzle: 0, quiz7: 0 };
         let __dogCorrectId = '2';
@@ -5420,13 +5635,168 @@
             ]}
         ];
 
+        /** Макс. 100: по 20 за задание, решённое с первого раза; при повторных попытках — 10. */
+        const QUEST_SCORE_MAX = 100;
+        const QUEST_POINTS_FIRST = 20;
+        const QUEST_POINTS_RETRY = 10;
+
+        function computeMissionScore() {
+            const keys = ['stage2', 'stage4', 'stage5', 'stage6', 'stage7'];
+            let total = 0;
+            const detail = {};
+            keys.forEach(k => {
+                if (!completedTasks[k]) {
+                    detail[k] = { pts: 0 };
+                    return;
+                }
+                let pts;
+                if (k === 'stage6') {
+                    pts = __orbitMemoryWrongMatches === 0 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+                } else {
+                    pts = taskAttempts[k] === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+                }
+                total += pts;
+                detail[k] = { pts };
+            });
+            return { total, detail, done: keys.filter(k => completedTasks[k]).length };
+        }
+
+        function computeMissionCode(name, total) {
+            let h = 2166136261;
+            const s = String(name || 'Стажер') + '|' + total + '|' + new Date().toDateString();
+            for (let i = 0; i < s.length; i++) {
+                h ^= s.charCodeAt(i);
+                h = Math.imul(h, 16777619);
+            }
+            const n = (h >>> 0) % 2176782336;
+            const part = n.toString(36).toUpperCase().padStart(6, '0').slice(0, 6);
+            return 'VKA-' + part + '-' + String(total % 1000).padStart(3, '0');
+        }
+
+        function getRankInfo(total, done) {
+            if (done === 5 && total === QUEST_SCORE_MAX) {
+                return {
+                    title: 'Командир экипажа',
+                    cls: 'Класс А',
+                    flavor: 'Все пять заданий с первого раза — максимум баллов и отличный командный стиль.'
+                };
+            }
+            if (done === 5 && total >= 90) {
+                return {
+                    title: 'Бортинженер',
+                    cls: 'Класс Б',
+                    flavor: 'Все контрольные точки пройдены: допуск к «орбитальной» истории получен.'
+                };
+            }
+            if (done === 5 && total >= 75) {
+                return {
+                    title: 'Специалист по допуску',
+                    cls: '',
+                    flavor: 'Вы закрыли все задания и набрали уверенный результат.'
+                };
+            }
+            if (done === 5) {
+                return {
+                    title: 'Стажёр орбитальной смены',
+                    cls: '',
+                    flavor: 'Все задания выполнены — можно вернуться к сложным местам и попробовать ещё раз для лучшего счёта.'
+                };
+            }
+            if (done >= 4) {
+                return {
+                    title: 'Специалист медотбора',
+                    cls: '',
+                    flavor: 'Сильный результат: вы уверенно держите нить от отбора до орбитальных задач.'
+                };
+            }
+            if (done >= 3) {
+                return {
+                    title: 'Стажёр орбитальной смены',
+                    cls: '',
+                    flavor: 'Уже неплохо — дочитайте материалы и вернитесь к оставшимся заданиям.'
+                };
+            }
+            if (done >= 1) {
+                return {
+                    title: 'Кандидат в отряд',
+                    cls: '',
+                    flavor: 'Старт есть — осталось закрепить навык на оставшихся этапах.'
+                };
+            }
+            return {
+                title: 'Набор продолжается',
+                cls: '',
+                flavor: 'Попробуйте пройти интерактивные задания в разделах квеста — так материал запоминается лучше всего.'
+            };
+        }
+
+        function showQuestToast(title, subtitle) {
+            const root = document.getElementById('toast-root');
+            if (!root) return;
+            const el = document.createElement('div');
+            el.className = 'quest-toast';
+            el.innerHTML = '<strong></strong><span></span>';
+            el.querySelector('strong').textContent = title;
+            el.querySelector('span').textContent = subtitle || '';
+            root.appendChild(el);
+            requestAnimationFrame(() => el.classList.add('quest-toast--show'));
+            setTimeout(() => {
+                el.classList.remove('quest-toast--show');
+                setTimeout(() => el.remove(), 400);
+            }, 2800);
+        }
+
+        function updateMissionHud() {
+            const { total, done } = computeMissionScore();
+            const ptsEl = document.getElementById('quest-hud-points');
+            const tasksEl = document.getElementById('quest-hud-tasks');
+            const barFill = document.getElementById('quest-hud-bar-fill');
+            const bar = document.getElementById('quest-hud-bar');
+            if (ptsEl) ptsEl.textContent = String(total);
+            if (tasksEl) tasksEl.textContent = 'Задания: ' + done + ' из 5';
+            if (barFill) barFill.style.width = Math.min(100, (total / QUEST_SCORE_MAX) * 100) + '%';
+            if (bar) {
+                bar.setAttribute('aria-valuenow', String(total));
+                bar.setAttribute('aria-valuemax', String(QUEST_SCORE_MAX));
+                bar.setAttribute('aria-label', 'Набрано ' + total + ' из ' + QUEST_SCORE_MAX + ' баллов');
+            }
+
+            const fs = document.getElementById('final-score');
+            if (fs) {
+                fs.textContent = total + ' баллов · выполнено ' + done + ' из 5 заданий';
+            }
+        }
+
+        function refreshFinaleScreen() {
+            const { total, done } = computeMissionScore();
+            const rank = getRankInfo(total, done);
+            const code = computeMissionCode(playerName, total);
+            const codeEl = document.getElementById('final-mission-code');
+            const rankEl = document.getElementById('final-rank-line');
+            const classEl = document.getElementById('final-rank-class');
+            const av = document.getElementById('final-avatar-emoji');
+            const flavor = document.getElementById('final-flavor-text');
+            if (codeEl) codeEl.textContent = code;
+            if (rankEl) rankEl.textContent = rank.title;
+            if (classEl) {
+                classEl.textContent = rank.cls || '';
+                classEl.style.display = rank.cls ? 'block' : 'none';
+            }
+            if (av) av.textContent = playerAvatarEmoji;
+            if (flavor) flavor.textContent = rank.flavor;
+            updateMissionHud();
+        }
+
         function initQuestVariants() {
+            taskAttempts = { stage2: 0, stage4: 0, stage5: 0, stage6: 0, stage7: 0 };
+            __orbitMemoryWrongMatches = 0;
             questPicks = { dog: pickRandom5(), wave1: pickRandom5(), puzzle: pickRandom5(), quiz7: pickRandom5() };
             renderDogVariant();
             renderGagarinVariant();
             renderWave1SpotFakeVariant();
             renderOrbitMemoryVariant();
             renderEarthSortVariant();
+            updateMissionHud();
         }
 
         function renderDogVariant() {
@@ -5468,6 +5838,7 @@
         }
 
         function renderOrbitMemoryVariant() {
+            __orbitMemoryWrongMatches = 0;
             __orbitMemoryLock = false;
             __orbitMemoryPickedIndex = null;
             const v = ORBIT_MEMORY_VARIANTS[questPicks.puzzle];
@@ -5523,9 +5894,15 @@
                     res.style.background = '#1e4a3b';
                     completedTasks.stage6 = true;
                     document.getElementById('stage5-next').disabled = false;
-                    updateFinalScoreText();
+                    const memPts = __orbitMemoryWrongMatches === 0 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+                    showQuestToast(
+                        '+' + memPts + ' баллов — «Сшивка орбиты»',
+                        memPts === QUEST_POINTS_FIRST ? 'С первого раза (без ошибок в парах)' : 'Задание засчитано'
+                    );
+                    updateMissionHud();
                 }
             } else {
+                __orbitMemoryWrongMatches++;
                 __orbitMemoryLock = true;
                 first.classList.add('orbit-memory-wrong');
                 card.classList.add('orbit-memory-wrong');
@@ -5564,9 +5941,7 @@
         }
 
         function updateFinalScoreText() {
-            const score = Object.values(completedTasks).filter(Boolean).length;
-            const el = document.getElementById('final-score');
-            if (el) el.textContent = `выполнено ${score} из 5 заданий`;
+            updateMissionHud();
         }
 
         function runInitializationSequence() {
@@ -5625,12 +6000,15 @@
             const avatarElement = document.querySelector(`[data-avatar="${selectedAvatar}"]`);
             const avatarIcon = avatarElement ? avatarElement.textContent : '👨‍🚀';
             const name = playerName || 'Стажер';
-            
+            playerAvatarEmoji = avatarIcon;
+
             document.getElementById('player-name-greeting').textContent = name;
             document.getElementById('welcome-avatar').textContent = avatarIcon;
             document.getElementById('final-player-name').textContent = name;
 
             initQuestVariants();
+            const qh = document.getElementById('quest-hud');
+            if (qh) qh.hidden = false;
             
             document.getElementById('avatar-screen').style.opacity = '0';
             setTimeout(() => {
@@ -5652,6 +6030,15 @@
             document.getElementById(`stage${stage}`).classList.add('active');
             currentStage = stage;
             scrollGameToTop();
+            if (stage === 9) {
+                refreshFinaleScreen();
+                const fin = document.getElementById('finale-hero-card');
+                if (fin) {
+                    fin.classList.remove('finale-hero--animate');
+                    void fin.offsetWidth;
+                    fin.classList.add('finale-hero--animate');
+                }
+            }
             requestAnimationFrame(() => {
                 scrollGameToTop();
             });
@@ -5665,12 +6052,18 @@
                 document.getElementById('dogResult').style.background = '#5a2e3a';
                 return;
             }
+            taskAttempts.stage2++;
             if (selected.dataset.dog === __dogCorrectId) {
                 document.getElementById('dogResult').innerHTML = '✅ Верно! Кандидат соответствует условиям варианта.';
                 document.getElementById('dogResult').style.background = '#1e4a3b';
                 completedTasks.stage2 = true;
                 document.getElementById('stage2-next').disabled = false;
-                updateFinalScoreText();
+                const pts = taskAttempts.stage2 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+                showQuestToast(
+                    '+' + pts + ' баллов — «Павильон № 1»',
+                    pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
+                );
+                updateMissionHud();
             } else {
                 document.getElementById('dogResult').innerHTML = '❌ Не подходит. Перечитайте формулировку задания и критерии на этапе.';
                 document.getElementById('dogResult').style.background = '#5a2e3a';
@@ -5679,6 +6072,7 @@
 
         // ЗАДАНИЕ 2: Гагарин (коридоры из варианта)
         function checkGagarin() {
+            taskAttempts.stage4++;
             const pulse = parseInt(document.getElementById('pulseSlider').value, 10);
             const pressure = parseInt(document.getElementById('pressureSlider').value, 10);
             const weight = parseInt(document.getElementById('weightSlider').value, 10);
@@ -5692,7 +6086,12 @@
                 document.getElementById('gagarinResult').style.background = '#1e4a3b';
                 completedTasks.stage4 = true;
                 document.getElementById('stage3-next').disabled = false;
-                updateFinalScoreText();
+                const pts = taskAttempts.stage4 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+                showQuestToast(
+                    '+' + pts + ' баллов — предстартовый допуск',
+                    pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
+                );
+                updateMissionHud();
             } else {
                 document.getElementById('gagarinResult').innerHTML = c.failMsg;
                 document.getElementById('gagarinResult').style.background = '#5a2e3a';
@@ -5707,12 +6106,18 @@
                 el.style.background = '#5a2e3a';
                 return;
             }
+            taskAttempts.stage5++;
             if (selected.dataset.wave1spot === __wave1FakeId) {
                 el.innerHTML = '✅ Верно: вы нашли неточность.';
                 el.style.background = '#1e4a3b';
                 completedTasks.stage5 = true;
                 document.getElementById('stage4-next').disabled = false;
-                updateFinalScoreText();
+                const pts = taskAttempts.stage5 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+                showQuestToast(
+                    '+' + pts + ' баллов — «Найти ошибку»',
+                    pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
+                );
+                updateMissionHud();
             } else {
                 el.innerHTML = '❌ Эта фраза соответствует тексту этапа. Ищите другую.';
                 el.style.background = '#5a2e3a';
@@ -5739,6 +6144,7 @@
                 el.style.background = '#5a2e3a';
                 return;
             }
+            taskAttempts.stage7++;
             if (wrong) {
                 el.innerHTML = '❌ Где-то неточно. Подумайте: это про больницы, изоляции на Земле и перенос методов — или про сам полёт, станцию и жизнь экипажа на витке.';
                 el.style.background = '#5a2e3a';
@@ -5748,7 +6154,12 @@
             el.style.background = '#1e4a3b';
             completedTasks.stage7 = true;
             document.getElementById('stage6-next').disabled = false;
-            updateFinalScoreText();
+            const pts = taskAttempts.stage7 === 1 ? QUEST_POINTS_FIRST : QUEST_POINTS_RETRY;
+            showQuestToast(
+                '+' + pts + ' баллов — «Два контура»',
+                pts === QUEST_POINTS_FIRST ? 'С первого раза' : 'После повторной попытки'
+            );
+            updateMissionHud();
         }
 
         window.orbitMemoryFlip = orbitMemoryFlip;
