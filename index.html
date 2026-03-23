@@ -176,7 +176,7 @@
             filter: blur(0.5px);
             box-shadow: 0 0 12px 2px rgba(57, 255, 189, 0.35);
             animation: splash-meteor 9s ease-in infinite;
-            animation-delay: 1.5s;
+            animation-delay: 0.3;
             opacity: 0;
         }
         @keyframes splash-meteor {
@@ -574,6 +574,32 @@
             letter-spacing: 0.12em;
             color: #39ffbd;
         }
+        .quest-hud__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.34rem 0.72rem;
+            border-radius: 999px;
+            border: 1px solid rgba(57, 255, 189, 0.38);
+            background: rgba(12, 27, 46, 0.82);
+            color: #d9edf8;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+        }
+        .quest-hud__back:hover {
+            transform: translateY(-1px);
+            background: rgba(20, 40, 67, 0.9);
+            border-color: rgba(57, 255, 189, 0.62);
+        }
+        .quest-hud__back:disabled {
+            opacity: 0.45;
+            cursor: default;
+            transform: none;
+        }
         .quest-hud__bar {
             height: 6px;
             border-radius: 999px;
@@ -867,6 +893,122 @@
             display: block;
             aspect-ratio: 4/3;
             object-fit: cover;
+        }
+        #game-container img {
+            cursor: zoom-in;
+        }
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            background: rgba(2, 6, 16, 0.9);
+            backdrop-filter: blur(4px);
+        }
+        .image-lightbox.is-open {
+            display: flex;
+        }
+        .image-lightbox__inner {
+            position: relative;
+            width: min(96vw, 1200px);
+            max-height: 92vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-lightbox__img {
+            max-width: 100%;
+            max-height: 82vh;
+            width: auto;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(138, 109, 233, 0.5);
+            box-shadow: 0 0 30px rgba(57, 255, 189, 0.2);
+            background: #081326;
+        }
+        .image-lightbox__caption {
+            position: absolute;
+            left: 50%;
+            bottom: -2.2rem;
+            transform: translateX(-50%);
+            width: min(92vw, 1000px);
+            text-align: center;
+            color: #d9eaf5;
+            font-size: 0.96rem;
+        }
+        .image-lightbox__close,
+        .image-lightbox__nav {
+            position: absolute;
+            border: 1px solid rgba(57, 255, 189, 0.45);
+            color: #e8fbff;
+            background: rgba(7, 16, 33, 0.85);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .image-lightbox__close:hover,
+        .image-lightbox__nav:hover {
+            transform: scale(1.06);
+            background: rgba(20, 43, 72, 0.92);
+        }
+        .image-lightbox__close {
+            top: -0.8rem;
+            right: -0.8rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .image-lightbox__nav {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.8rem;
+            height: 2.8rem;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+        .image-lightbox__nav:hover {
+            transform: translateY(-50%) scale(1.06);
+        }
+        .image-lightbox__nav--prev {
+            left: -3.4rem;
+        }
+        .image-lightbox__nav--next {
+            right: -3.4rem;
+        }
+        .image-lightbox__nav[hidden] {
+            display: none;
+        }
+        @media (max-width: 860px) {
+            .image-lightbox__close {
+                top: 0.3rem;
+                right: 0.3rem;
+            }
+            .image-lightbox__nav {
+                top: auto;
+                bottom: -3.6rem;
+                transform: none;
+            }
+            .image-lightbox__nav:hover {
+                transform: scale(1.06);
+            }
+            .image-lightbox__nav--prev {
+                left: calc(50% - 3.7rem);
+            }
+            .image-lightbox__nav--next {
+                right: calc(50% - 3.7rem);
+            }
+            .image-lightbox__caption {
+                bottom: -6.6rem;
+                font-size: 0.9rem;
+            }
+            .image-lightbox__inner {
+                max-height: 80vh;
+            }
         }
 
         /* Фотоальбомы с целым кадром в ячейке (без обрезки), пропорции сохраняются */
@@ -3934,9 +4076,6 @@
             line-height: 1.5;
             color: #a8c4d8;
             white-space: nowrap;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
         }
         .site-footer-museum a {
             color: #e0f2fe;
@@ -3954,9 +4093,6 @@
             line-height: 1.55;
             color: #7a9aad;
             white-space: nowrap;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
         }
         .site-footer-credit:last-of-type {
             margin-bottom: 0;
@@ -3989,6 +4125,11 @@
         }
 
         @media (max-width: 900px) {
+            .site-footer-inner {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+            }
             .dog-orbit-wrap {
                 grid-template-columns: 1fr;
             }
@@ -4216,7 +4357,7 @@
         <div style="font-size: 3rem; color: #39ffbd; margin-bottom: 2rem;">
             <i class="fas fa-rocket"></i>
         </div>
-        <div class="loading-text">ПОДГОТОВКА К ПОЛЕТУ</div>
+        <div class="loading-text">ПОДГОТОВКА К ПОЛЁТУ</div>
         <div class="loading-bar">
             <div class="loading-progress" id="loading-progress"></div>
         </div>
@@ -4262,6 +4403,7 @@
         <aside id="quest-hud" class="quest-hud" hidden aria-label="Прогресс миссии">
             <div class="quest-hud__inner">
                 <div class="quest-hud__meta">
+                    <button type="button" class="quest-hud__back" id="quest-hud-back" onclick="prevStage()" hidden>← Назад</button>
                     <span class="quest-hud__points"><span id="quest-hud-points">0</span> <span class="quest-hud__points-max">/ 100 баллов</span></span>
                     <span class="quest-hud__tasks" id="quest-hud-tasks">Задания: 0 из 5</span>
                 </div>
@@ -4974,7 +5116,7 @@
                             <input type="range" id="pulseSlider" min="50" max="140" value="70">
                         </div>
                         <div class="exam-param">
-                            <div>Давление (сист.)</div>
+                            <div>Давление (систолическое)</div>
                             <div class="exam-value" id="pressureValue">120</div>
                             <input type="range" id="pressureSlider" min="90" max="170" value="120">
                         </div>
@@ -5727,10 +5869,20 @@
                         </p>
                         <p class="site-footer-credit">Проект создан совместно с Санкт-Петербургским государственным электротехническим университетом «ЛЭТИ» им. В.И. Ульянова (Ленина).</p>
                         <p class="site-footer-credit">Идея, концепт, разработка: Разживина Н.М. — Руководитель: Тимофеев А.В.</p>
-                        <p class="site-footer-credit">Использованы материалы <a href="http://www.imbp.ru/WebPages/WIN1251/History/History.html" target="_blank" rel="noopener noreferrer">ГНЦ РФ — ИМБП РАН</a>, <a href="https://roscosmos.ru/" target="_blank" rel="noopener noreferrer">Госкорпорации «Роскосмос»</a>, «История отечественной космической медицины» (под редакцией Ушакова И.Б., Бедненко В.С., Лапаева Э.В.).</p>
+                        <p class="site-footer-credit">Использованы материалы: <a href="http://www.imbp.ru/WebPages/WIN1251/History/History.html" target="_blank" rel="noopener noreferrer">ГНЦ РФ — ИМБП РАН</a>, <a href="https://roscosmos.ru/" target="_blank" rel="noopener noreferrer">Госкорпорациz «Роскосмос»</a>, «История отечественной космической медицины» (под редакцией Ушакова И.Б., Бедненко В.С., Лапаева Э.В.).</p>
                     </div>
                 </footer>
             </div>
+        </div>
+    </div>
+
+    <div id="image-lightbox" class="image-lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения" hidden>
+        <div class="image-lightbox__inner" role="document">
+            <button type="button" id="image-lightbox-close" class="image-lightbox__close" aria-label="Закрыть">×</button>
+            <button type="button" id="image-lightbox-prev" class="image-lightbox__nav image-lightbox__nav--prev" aria-label="Предыдущее изображение">‹</button>
+            <img id="image-lightbox-img" class="image-lightbox__img" src="" alt="">
+            <button type="button" id="image-lightbox-next" class="image-lightbox__nav image-lightbox__nav--next" aria-label="Следующее изображение">›</button>
+            <div id="image-lightbox-caption" class="image-lightbox__caption"></div>
         </div>
     </div>
 
@@ -5837,7 +5989,7 @@
                 { t: 'На «Восходе-1» экипаж около суток работал в кабине без скафандров; среди трёх человек был врач Борис Егоров.', fake: false },
                 { t: 'У Алексея Леонова при выходе в открытый космос врачи зафиксировали пульс до 162 уд/мин.', fake: false },
                 { t: 'В июне 1963 года на орбите одновременно находились корабли Валентины Терешковой и Валерия Быковского.', fake: false },
-                { t: 'Первым в отечественной пилотируемой программе подробно описал космическую болезнь Юрий Гагарин во время «Востока-1».', fake: true }
+                { t: 'Первым в отечественной пилотируемой программе подробно описал космическую болезнь Юрий Гагарин.', fake: true }
             ]},
             { items: [
                 { t: 'Титову на момент полёта «Востока-2» было 25 лет — он был самым молодым космонавтом.', fake: false },
@@ -6325,10 +6477,19 @@
             document.body.scrollTop = 0;
         }
 
+        function updateQuestHudNav() {
+            const backBtn = document.getElementById('quest-hud-back');
+            if (!backBtn) return;
+            const canGoBack = currentStage > 1;
+            backBtn.hidden = !canGoBack;
+            backBtn.disabled = !canGoBack;
+        }
+
         function nextStage(stage) {
             document.querySelectorAll('.game-stage').forEach(s => s.classList.remove('active'));
             document.getElementById(`stage${stage}`).classList.add('active');
             currentStage = stage;
+            updateQuestHudNav();
             scrollGameToTop();
             if (stage === 9) {
                 refreshFinaleScreen();
@@ -6342,6 +6503,11 @@
             requestAnimationFrame(() => {
                 scrollGameToTop();
             });
+        }
+
+        function prevStage() {
+            if (currentStage <= 1) return;
+            nextStage(currentStage - 1);
         }
 
         // ЗАДАНИЕ 1: Собаки
@@ -6482,6 +6648,127 @@
             grid.querySelectorAll('.option-item').forEach(opt => { if (opt !== item) opt.classList.remove('selected'); });
             item.classList.toggle('selected');
         });
+
+        (function initImageLightbox() {
+            const root = document.getElementById('image-lightbox');
+            const inner = root?.querySelector('.image-lightbox__inner');
+            const imgEl = document.getElementById('image-lightbox-img');
+            const captionEl = document.getElementById('image-lightbox-caption');
+            const closeBtn = document.getElementById('image-lightbox-close');
+            const prevBtn = document.getElementById('image-lightbox-prev');
+            const nextBtn = document.getElementById('image-lightbox-next');
+            const gameContainer = document.getElementById('game-container');
+            if (!root || !imgEl || !captionEl || !closeBtn || !prevBtn || !nextBtn || !gameContainer) return;
+
+            let activeImages = [];
+            let activeIndex = -1;
+            let lastFocusedEl = null;
+
+            function getCaption(sourceImg) {
+                const caption = sourceImg.closest('.gallery-item')?.querySelector('.gallery-caption');
+                if (caption) return caption.textContent.trim();
+                const figureCaption = sourceImg.closest('figure')?.querySelector('figcaption');
+                if (figureCaption) return figureCaption.textContent.trim();
+                return sourceImg.alt || '';
+            }
+
+            function updateNavButtons() {
+                const hasGallery = activeImages.length > 1;
+                prevBtn.hidden = !hasGallery;
+                nextBtn.hidden = !hasGallery;
+            }
+
+            function renderActiveImage() {
+                const source = activeImages[activeIndex];
+                if (!source) return;
+                imgEl.src = source.currentSrc || source.src;
+                imgEl.alt = source.alt || '';
+                captionEl.textContent = getCaption(source);
+                updateNavButtons();
+            }
+
+            function openLightbox(images, index, triggerEl) {
+                activeImages = images.filter(Boolean);
+                activeIndex = index;
+                if (!activeImages.length || activeIndex < 0) return;
+                lastFocusedEl = triggerEl || document.activeElement;
+                renderActiveImage();
+                root.hidden = false;
+                root.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+
+            function closeLightbox() {
+                root.classList.remove('is-open');
+                root.hidden = true;
+                imgEl.src = '';
+                captionEl.textContent = '';
+                activeImages = [];
+                activeIndex = -1;
+                document.body.style.overflow = '';
+                if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+                    lastFocusedEl.focus();
+                }
+                lastFocusedEl = null;
+            }
+
+            function step(delta) {
+                if (activeImages.length <= 1) return;
+                activeIndex = (activeIndex + delta + activeImages.length) % activeImages.length;
+                renderActiveImage();
+            }
+
+            gameContainer.addEventListener('click', function(e) {
+                const targetImg = e.target.closest('img');
+                if (!targetImg || !targetImg.src) return;
+                if (targetImg.closest('#image-lightbox')) return;
+
+                const gazenkoCarousel = targetImg.closest('.dog-gazenko-carousel');
+                if (gazenkoCarousel) {
+                    const carouselImages = Array.from(
+                        gazenkoCarousel.querySelectorAll('.dog-gazenko-carousel__track .dog-gazenko-carousel__slide img')
+                    ).filter(i => i.src);
+                    const idx = carouselImages.indexOf(targetImg);
+                    if (idx !== -1) {
+                        openLightbox(carouselImages, idx, targetImg);
+                        return;
+                    }
+                }
+
+                const gallery = targetImg.closest('.gallery');
+                if (gallery) {
+                    const galleryImages = Array.from(gallery.querySelectorAll('img')).filter(i => i.src);
+                    const idx = galleryImages.indexOf(targetImg);
+                    if (idx !== -1) {
+                        openLightbox(galleryImages, idx, targetImg);
+                        return;
+                    }
+                }
+                openLightbox([targetImg], 0, targetImg);
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+            prevBtn.addEventListener('click', function() { step(-1); });
+            nextBtn.addEventListener('click', function() { step(1); });
+
+            root.addEventListener('click', function(e) {
+                if (e.target === root) closeLightbox();
+            });
+            inner.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (root.hidden) return;
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                    return;
+                }
+                if (e.key === 'ArrowLeft') step(-1);
+                if (e.key === 'ArrowRight') step(1);
+            });
+        })();
 
         // Ползунки
         document.getElementById('pulseSlider')?.addEventListener('input', function() {
